@@ -131,7 +131,7 @@ export default function DashboardClient({ user }: { user: any }) {
 
       {/* Slim navbar */}
       <div className="w-full sticky top-0 z-30 bg-[#0a0a0a]/90 border-b border-white/10 backdrop-blur-xl">
-        <div className="max-w-2xl mx-auto w-full h-14 flex items-center justify-between px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto w-full h-14 flex items-center justify-between px-4 sm:px-6">
           <Image src="/logo.png" alt="Logo" width={130} height={34} style={{ width: 'auto', height: 'auto' }} className="object-contain drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)] shrink-0" priority />
           <div className="flex items-center gap-2">
             <div className="hidden sm:block"><LanguageSwitcher /></div>
@@ -140,16 +140,19 @@ export default function DashboardClient({ user }: { user: any }) {
         </div>
       </div>
 
-      {/* Single-column focused wizard — only the active step is shown, so
-          getting to the actual inputs never requires scrolling past
-          content for steps you're not on yet. */}
-      <div className="max-w-2xl w-full px-4 sm:px-6 relative z-10 pt-6 pb-10">
+      {/* Only the active step is shown, so getting to the actual inputs
+          never requires scrolling past content for steps you're not on
+          yet. Steps 1/3 are short, so they stay centered and compact
+          within the shell; step 2 has real content on both a "your task"
+          side and a "reference" side, so it uses the full width as a
+          proper two-column form-left / help-right layout. */}
+      <div className="max-w-4xl w-full px-4 sm:px-6 relative z-10 pt-6 pb-10">
         <StepProgress step={step} />
 
         <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-5 sm:p-7">
 
           {step === 1 && (
-            <div>
+            <div className="max-w-md mx-auto">
               <h1 className="text-lg font-semibold text-white mb-1">{t('detailsTitle')}</h1>
               <p className="text-xs text-gray-500 mb-5">{t('detailsDesc')}</p>
 
@@ -178,113 +181,127 @@ export default function DashboardClient({ user }: { user: any }) {
                 <ChevronLeft className="w-3.5 h-3.5" /> {t('stepBack')}
               </button>
               <h1 className="text-lg font-semibold text-white mb-1">{t('dnsSetup')}</h1>
-              <p className="text-xs text-gray-500 mb-4">{t('step2Desc')}</p>
+              <p className="text-xs text-gray-500 mb-5">{t('step2Desc')}</p>
 
-              <div className="flex items-start gap-2.5 bg-red-500/[0.06] border border-red-500/15 rounded-xl px-4 py-3 mb-5">
-                <HelpCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  {t('domainHelpBanner')}{' '}
-                  <Link href="mailto:support@tunerportal.com" className="text-red-400 hover:text-red-300 font-semibold transition-colors">
-                    {t('contactSupport')}
-                  </Link>
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              {/* Your task, left — the domain fields and the CNAME values that
+                  result from them. Help and reference material, right —
+                  contact options, the walkthrough video, and hoster-specific
+                  instructions, so the two don't compete for the same column. */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-medium text-white/60 mb-1.5">{t('portalDomain')}</label>
-                  <input type="text" value={form.customerDomain} onChange={update('customerDomain')} placeholder="portal.your-domain.com" className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600" />
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
+                    <div>
+                      <label className="block text-xs font-medium text-white/60 mb-1.5">{t('portalDomain')}</label>
+                      <input type="text" value={form.customerDomain} onChange={update('customerDomain')} placeholder="portal.your-domain.com" className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-white/60 mb-1.5">{t('adminDomain')}</label>
+                      <input type="text" value={form.adminDomain} onChange={update('adminDomain')} placeholder="admin.your-domain.com" className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600" />
+                    </div>
+                    <p className="xl:col-span-2 text-[11px] text-gray-500 leading-relaxed">{t('domainHint')}</p>
+                  </div>
+
+                  <div className="bg-black/30 rounded-xl overflow-hidden border border-white/10 mb-4">
+                    <div className="bg-white/[0.04] border-b border-white/10 px-4 py-2.5 grid grid-cols-12 gap-3 text-[11px] font-bold text-gray-400 tracking-wide uppercase">
+                      <div className="col-span-5">{t('cnameSubdomainUsage')}</div>
+                      <div className="col-span-7">{t('cnameTargetValue')}</div>
+                    </div>
+                    <div className="border-b border-white/10 px-4 py-3 grid grid-cols-12 gap-3 items-center">
+                      <div className="col-span-5">
+                        <span className="inline-block px-2 py-0.5 bg-red-500/15 text-red-400 border border-red-500/20 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForAdmin')}</span>
+                        <p className={twMerge('text-sm font-semibold', form.adminDomain ? 'text-white' : 'text-gray-500 italic font-normal')}>{form.adminDomain || t('adminDomain')}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{t('cnameType')}</p>
+                      </div>
+                      <div className="col-span-7 flex items-center gap-2">
+                        <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 select-all truncate">70d64f5d10ce3321.vercel-dns-017.com.</p>
+                        <CopyButton value="70d64f5d10ce3321.vercel-dns-017.com." />
+                      </div>
+                    </div>
+                    <div className="px-4 py-3 grid grid-cols-12 gap-3 items-center">
+                      <div className="col-span-5">
+                        <span className="inline-block px-2 py-0.5 bg-blue-500/15 text-blue-400 border border-blue-500/20 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForCustomers')}</span>
+                        <p className={twMerge('text-sm font-semibold', form.customerDomain ? 'text-white' : 'text-gray-500 italic font-normal')}>{form.customerDomain || t('portalDomain')}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{t('cnameType')}</p>
+                      </div>
+                      <div className="col-span-7 flex items-center gap-2">
+                        <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 select-all truncate">2145f1913d58fb07.vercel-dns-017.com.</p>
+                        <CopyButton value="2145f1913d58fb07.vercel-dns-017.com." />
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-400 flex items-start bg-white/5 p-2.5 rounded-lg border border-white/10">
+                    <AlertCircle className="w-4 h-4 mr-2 mt-0.5 shrink-0 text-gray-500" />
+                    <span>{t('cnameDotNote')}</span>
+                  </p>
                 </div>
+
                 <div>
-                  <label className="block text-xs font-medium text-white/60 mb-1.5">{t('adminDomain')}</label>
-                  <input type="text" value={form.adminDomain} onChange={update('adminDomain')} placeholder="admin.your-domain.com" className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600" />
-                </div>
-                <p className="sm:col-span-2 text-[11px] text-gray-500 leading-relaxed">{t('domainHint')}</p>
-              </div>
+                  <div className="flex items-start gap-2.5 bg-red-500/[0.06] border border-red-500/15 rounded-xl px-4 py-3 mb-4">
+                    <HelpCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-300 leading-relaxed">
+                      {t('domainHelpBanner')}{' '}
+                      <Link href="mailto:support@tunerportal.com" className="text-red-400 hover:text-red-300 font-semibold transition-colors">
+                        {t('contactSupport')}
+                      </Link>
+                      {' · '}
+                      <Link href="https://wa.me/352661293088" target="_blank" className="text-[#25D366] hover:text-[#2fe37a] font-semibold transition-colors">
+                        WhatsApp
+                      </Link>
+                    </p>
+                  </div>
 
-              <div className="bg-black/30 rounded-xl overflow-hidden border border-white/10 mb-4">
-                <div className="bg-white/[0.04] border-b border-white/10 px-4 py-2.5 grid grid-cols-12 gap-3 text-[11px] font-bold text-gray-400 tracking-wide uppercase">
-                  <div className="col-span-5">{t('cnameSubdomainUsage')}</div>
-                  <div className="col-span-7">{t('cnameTargetValue')}</div>
-                </div>
-                <div className="border-b border-white/10 px-4 py-3 grid grid-cols-12 gap-3 items-center">
-                  <div className="col-span-5">
-                    <span className="inline-block px-2 py-0.5 bg-red-500/15 text-red-400 border border-red-500/20 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForAdmin')}</span>
-                    <p className={twMerge('text-sm font-semibold', form.adminDomain ? 'text-white' : 'text-gray-500 italic font-normal')}>{form.adminDomain || t('adminDomain')}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{t('cnameType')}</p>
-                  </div>
-                  <div className="col-span-7 flex items-center gap-2">
-                    <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 select-all truncate">70d64f5d10ce3321.vercel-dns-017.com.</p>
-                    <CopyButton value="70d64f5d10ce3321.vercel-dns-017.com." />
-                  </div>
-                </div>
-                <div className="px-4 py-3 grid grid-cols-12 gap-3 items-center">
-                  <div className="col-span-5">
-                    <span className="inline-block px-2 py-0.5 bg-blue-500/15 text-blue-400 border border-blue-500/20 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForCustomers')}</span>
-                    <p className={twMerge('text-sm font-semibold', form.customerDomain ? 'text-white' : 'text-gray-500 italic font-normal')}>{form.customerDomain || t('portalDomain')}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{t('cnameType')}</p>
-                  </div>
-                  <div className="col-span-7 flex items-center gap-2">
-                    <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 select-all truncate">2145f1913d58fb07.vercel-dns-017.com.</p>
-                    <CopyButton value="2145f1913d58fb07.vercel-dns-017.com." />
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-xs text-gray-400 mb-4 flex items-start bg-white/5 p-2.5 rounded-lg border border-white/10">
-                <AlertCircle className="w-4 h-4 mr-2 mt-0.5 shrink-0 text-gray-500" />
-                <span>{t('cnameDotNote')}</span>
-              </p>
-
-              <div className="border border-white/10 rounded-xl overflow-hidden">
-                <div className="flex items-center justify-between gap-4 px-4 py-3 bg-white/[0.02]">
-                  <label className="text-xs font-medium text-white/60 shrink-0">{t('selectHoster')}</label>
-                  <select
-                    value={selectedHoster}
-                    onChange={(e) => { setSelectedHoster(e.target.value); setShowHosterSteps(true); }}
-                    className="flex-1 max-w-[220px] bg-black/60 border border-white/10 px-3 py-1.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all cursor-pointer"
+                  <button
+                    type="button"
+                    onClick={() => setShowVideo(v => !v)}
+                    className="w-full flex items-center justify-center gap-2 text-sm font-medium text-gray-400 hover:text-white bg-white/[0.02] hover:bg-white/5 border border-white/10 rounded-xl py-2.5 transition-all mb-4"
                   >
-                    {HOSTERS.map(h => <option key={h} value={h}>{h}</option>)}
-                  </select>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setShowHosterSteps(v => !v)}
-                  className="w-full flex items-center justify-between gap-2 px-4 py-2.5 border-t border-white/10 bg-black/20 hover:bg-black/30 transition-colors"
-                >
-                  <span className="text-xs font-semibold text-gray-300">{t('hosterInstructionsFor', { name: selectedHoster })}</span>
-                  <ChevronDown className={twMerge('w-4 h-4 text-gray-500 transition-transform duration-200', showHosterSteps && 'rotate-180')} />
-                </button>
-                {showHosterSteps && (
-                  <div className="px-4 pb-4 pt-1 border-t border-white/10 bg-black/20">
-                    <ol className="list-decimal list-inside text-sm text-gray-400 space-y-1.5 leading-relaxed">
-                      {hosterSteps.map((s, i) => <li key={i}>{s}</li>)}
-                    </ol>
+                    <PlayCircle className="w-4 h-4" /> {t('videoTutorialToggle')}
+                  </button>
+                  {showVideo && (
+                    <div className="rounded-xl overflow-hidden border border-white/10 bg-black/40 mb-4">
+                      <video controls className="w-full h-auto max-h-[400px] object-cover bg-black" preload="metadata">
+                        <source src="/videos/setup-domain.mp4" type="video/mp4" />
+                        {t('videoUnsupported')}
+                      </video>
+                    </div>
+                  )}
+
+                  <div className="border border-white/10 rounded-xl overflow-hidden mb-4">
+                    <div className="flex items-center justify-between gap-4 px-4 py-3 bg-white/[0.02]">
+                      <label className="text-xs font-medium text-white/60 shrink-0">{t('selectHoster')}</label>
+                      <select
+                        value={selectedHoster}
+                        onChange={(e) => { setSelectedHoster(e.target.value); setShowHosterSteps(true); }}
+                        className="flex-1 max-w-[220px] bg-black/60 border border-white/10 px-3 py-1.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all cursor-pointer"
+                      >
+                        {HOSTERS.map(h => <option key={h} value={h}>{h}</option>)}
+                      </select>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowHosterSteps(v => !v)}
+                      className="w-full flex items-center justify-between gap-2 px-4 py-2.5 border-t border-white/10 bg-black/20 hover:bg-black/30 transition-colors"
+                    >
+                      <span className="text-xs font-semibold text-gray-300">{t('hosterInstructionsFor', { name: selectedHoster })}</span>
+                      <ChevronDown className={twMerge('w-4 h-4 text-gray-500 transition-transform duration-200', showHosterSteps && 'rotate-180')} />
+                    </button>
+                    {showHosterSteps && (
+                      <div className="px-4 pb-4 pt-1 border-t border-white/10 bg-black/20">
+                        <ol className="list-decimal list-inside text-sm text-gray-400 space-y-1.5 leading-relaxed">
+                          {hosterSteps.map((s, i) => <li key={i}>{s}</li>)}
+                        </ol>
+                      </div>
+                    )}
                   </div>
-                )}
+
+                  <p className="text-xs text-amber-400/80 flex items-center bg-amber-500/10 p-2.5 rounded-lg border border-amber-500/20">
+                    <ShieldCheck className="w-4 h-4 mr-2 shrink-0" /> {t('sslInfo')}
+                  </p>
+                </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setShowVideo(v => !v)}
-                className="mt-4 w-full flex items-center justify-center gap-2 text-sm font-medium text-gray-400 hover:text-white bg-white/[0.02] hover:bg-white/5 border border-white/10 rounded-xl py-2.5 transition-all"
-              >
-                <PlayCircle className="w-4 h-4" /> {t('videoTutorialToggle')}
-              </button>
-              {showVideo && (
-                <div className="mt-3 rounded-xl overflow-hidden border border-white/10 bg-black/40">
-                  <video controls className="w-full h-auto max-h-[400px] object-cover bg-black" preload="metadata">
-                    <source src="/videos/setup-domain.mp4" type="video/mp4" />
-                    {t('videoUnsupported')}
-                  </video>
-                </div>
-              )}
-
-              <p className="text-xs text-amber-400/80 mt-4 flex items-center bg-amber-500/10 p-2.5 rounded-lg border border-amber-500/20">
-                <ShieldCheck className="w-4 h-4 mr-2 shrink-0" /> {t('sslInfo')}
-              </p>
-
-              {stepError && <p className="text-xs text-red-400 mt-3">{stepError}</p>}
+              {stepError && <p className="text-xs text-red-400 mt-4">{stepError}</p>}
 
               <button type="button" onClick={goToStep3} className="w-full mt-5 px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold text-sm rounded-xl transition-all">
                 {t('stepContinueBtn')}
@@ -293,7 +310,7 @@ export default function DashboardClient({ user }: { user: any }) {
           )}
 
           {step === 3 && (
-            <div>
+            <div className="max-w-md mx-auto">
               {!alreadyRegistered && !isApproved && (
                 <button type="button" onClick={() => setStep(2)} className="flex items-center gap-1 text-xs text-gray-500 hover:text-white transition-colors mb-3">
                   <ChevronLeft className="w-3.5 h-3.5" /> {t('stepBack')}
@@ -347,11 +364,13 @@ export default function DashboardClient({ user }: { user: any }) {
         </div>
 
         {/* Support — one unobtrusive line, always reachable, not a competing card */}
-        <div className="flex items-center justify-center gap-2 mt-5 text-xs text-gray-500">
-          <Building2 className="w-3.5 h-3.5" />
-          <span>{t('onboardingSidebarNote')}</span>
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-5 text-xs text-gray-500">
+          <span className="flex items-center gap-2"><Building2 className="w-3.5 h-3.5" /> {t('onboardingSidebarNote')}</span>
           <Link href="mailto:support@tunerportal.com" className="inline-flex items-center gap-1 text-red-400 hover:text-red-300 font-medium transition-colors">
             <MessageCircle className="w-3.5 h-3.5" /> {t('contactSupport')}
+          </Link>
+          <Link href="https://wa.me/352661293088" target="_blank" className="inline-flex items-center gap-1 text-[#25D366] hover:text-[#2fe37a] font-medium transition-colors">
+            <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
           </Link>
         </div>
       </div>
