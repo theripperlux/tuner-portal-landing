@@ -287,7 +287,17 @@
     "activationMessage": "Aktiveringen kan ta 1–5 timmar innan din portal är helt live på:\nAdmin: {admin}\nKund: {customer}",
     "supportDesc": "Har du frågor om hur du konfigurerar din domän eller portal? Hör av dig när som helst — vårt team hjälper gärna till, även innan din installation är klar.",
     "contactSupport": "Kontakta support",
-    "onboardingSidebarNote": "Din portal går vanligtvis live inom några timmar efter aktivering, när dina DNS-poster har spridits."
+    "onboardingSidebarNote": "Din portal går vanligtvis live inom några timmar efter aktivering, när dina DNS-poster har spridits.",
+    "detailsTitle": "Dina uppgifter",
+    "detailsDesc": "Företagsinfo och domäner",
+    "overviewWelcome": "Välkommen tillbaka, {name}",
+    "overviewWelcomeGeneric": "Välkommen tillbaka",
+    "overviewLiveTitle": "Din portal är live",
+    "overviewLiveDesc": "Din white label-tuningportal är igång. Dela dessa länkar med ditt team och dina kunder.",
+    "overviewAdminPortalLabel": "Adminportal",
+    "overviewCustomerPortalLabel": "Kundportal",
+    "overviewCompanyLabel": "Företag",
+    "overviewNeedChanges": "Behöver du uppdatera din domän eller företagsuppgifter? Kontakta supporten, vi hjälper gärna till."
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "E-post skickad!",
     "emailModalSendFailed": "Det gick inte att skicka e-post: {error}",
     "emailModalUnknownError": "Okänt fel",
-    "emailModalSendError": "Fel vid sändning av e-post."
+    "emailModalSendError": "Fel vid sändning av e-post.",
+    "usersRegistrationError": "Registreringsfel",
+    "usersRegistrationSubmitted": "Skickat"
   }
 }

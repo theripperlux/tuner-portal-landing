@@ -287,7 +287,17 @@
     "activationMessage": "La activación puede tardar de 1 a 5 horas hasta que tu portal esté completamente en línea en:\nAdmin: {admin}\nCliente: {customer}",
     "supportDesc": "¿Tienes dudas sobre cómo configurar tu dominio o tu portal? Contáctanos cuando quieras — nuestro equipo estará encantado de ayudarte, incluso antes de que termines la configuración.",
     "contactSupport": "Contactar con soporte",
-    "onboardingSidebarNote": "Tu portal suele estar en línea a las pocas horas de la activación, una vez que tus registros DNS se hayan propagado."
+    "onboardingSidebarNote": "Tu portal suele estar en línea a las pocas horas de la activación, una vez que tus registros DNS se hayan propagado.",
+    "detailsTitle": "Tus datos",
+    "detailsDesc": "Datos de la empresa y dominios",
+    "overviewWelcome": "Bienvenido de nuevo, {name}",
+    "overviewWelcomeGeneric": "Bienvenido de nuevo",
+    "overviewLiveTitle": "Tu portal está en línea",
+    "overviewLiveDesc": "Tu portal de tuning de marca blanca está en funcionamiento. Comparte estos enlaces con tu equipo y tus clientes.",
+    "overviewAdminPortalLabel": "Portal de administración",
+    "overviewCustomerPortalLabel": "Portal de clientes",
+    "overviewCompanyLabel": "Empresa",
+    "overviewNeedChanges": "¿Necesitas actualizar tu dominio o los datos de tu empresa? Contacta con soporte, estaremos encantados de ayudarte."
   },
   "HomeRedesign": {
     "heroBadge": "El Sistema Operativo para tu Negocio de Tuning",
@@ -1193,7 +1203,9 @@
     "emailModalSentSuccess": "¡Correo enviado con éxito!",
     "emailModalSendFailed": "No se pudo enviar el correo: {error}",
     "emailModalUnknownError": "Error desconocido",
-    "emailModalSendError": "Error al enviar el correo."
+    "emailModalSendError": "Error al enviar el correo.",
+    "usersRegistrationError": "Error de registro",
+    "usersRegistrationSubmitted": "Enviado"
   },
   "Showcase": {
     "title": "Capacidades de la plataforma",

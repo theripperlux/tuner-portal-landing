@@ -12,6 +12,7 @@ import {
 import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import Image from 'next/image';
+import { twMerge } from 'tailwind-merge';
 
 export default function AdminClient({ users, tickets, chats, settings }: any) {
   const t = useTranslations('AdminPanel');
@@ -177,7 +178,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
   if (!mounted) return <div className="min-h-screen bg-[#050505]" />;
 
   return (
-    <div className="fixed inset-0 bg-[#050505] text-gray-200 flex z-[100] h-screen w-screen overflow-hidden font-sans selection:bg-[#00f2ff]/30">
+    <div className="fixed inset-0 bg-[#050505] text-gray-200 flex z-[100] h-screen w-screen overflow-hidden font-sans selection:bg-[#e8192c]/30">
 
       {/* Premium Subtle Grid Background */}
       <div
@@ -217,7 +218,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
         <div className="px-4 mb-4">
           <div className="bg-white/[0.03] border border-white/[0.05] rounded-lg p-3 flex items-center gap-3">
             <div className="w-8 h-8 rounded-md bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center border border-white/10 shadow-inner">
-              <ShieldCheck className="w-4 h-4 text-[#00f2ff]" />
+              <ShieldCheck className="w-4 h-4 text-[#e8192c]" />
             </div>
             <div>
               <div className="text-xs font-semibold text-white">{t('sidebarSystemAdmin')}</div>
@@ -231,21 +232,21 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
             onClick={()=>{setTab('dashboard'); setIsSidebarOpen(false);}}
             className={`w-full flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${tab === 'dashboard' ? 'bg-white/10 text-white shadow-sm border border-white/5' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
           >
-            <LayoutDashboard className={`w-4 h-4 mr-3 ${tab === 'dashboard' ? 'text-[#00f2ff]' : 'opacity-70'}`} /> {t('navDashboard')}
+            <LayoutDashboard className={`w-4 h-4 mr-3 ${tab === 'dashboard' ? 'text-[#e8192c]' : 'opacity-70'}`} /> {t('navDashboard')}
           </button>
 
           <button
             onClick={()=>{setTab('users'); setIsSidebarOpen(false);}}
             className={`w-full flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${tab === 'users' ? 'bg-white/10 text-white shadow-sm border border-white/5' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
           >
-            <Users className={`w-4 h-4 mr-3 ${tab === 'users' ? 'text-[#00f2ff]' : 'opacity-70'}`} /> {t('navUsers')}
+            <Users className={`w-4 h-4 mr-3 ${tab === 'users' ? 'text-[#e8192c]' : 'opacity-70'}`} /> {t('navUsers')}
           </button>
 
           <button
             onClick={()=>{setTab('tickets'); setIsSidebarOpen(false);}}
             className={`w-full flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${tab === 'tickets' ? 'bg-white/10 text-white shadow-sm border border-white/5' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
           >
-            <TicketIcon className={`w-4 h-4 mr-3 ${tab === 'tickets' ? 'text-[#00f2ff]' : 'opacity-70'}`} /> {t('navTickets')}
+            <TicketIcon className={`w-4 h-4 mr-3 ${tab === 'tickets' ? 'text-[#e8192c]' : 'opacity-70'}`} /> {t('navTickets')}
             {stats.openTickets > 0 && (
               <span className="ml-auto bg-[#e8192c]/20 text-[#e8192c] text-[10px] px-2 py-0.5 rounded-full font-bold">{stats.openTickets}</span>
             )}
@@ -255,9 +256,9 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
             onClick={()=>{setTab('chats'); setIsSidebarOpen(false);}}
             className={`w-full flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${tab === 'chats' ? 'bg-white/10 text-white shadow-sm border border-white/5' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
           >
-            <MessageSquare className={`w-4 h-4 mr-3 ${tab === 'chats' ? 'text-[#00f2ff]' : 'opacity-70'}`} /> {t('navChats')}
+            <MessageSquare className={`w-4 h-4 mr-3 ${tab === 'chats' ? 'text-[#e8192c]' : 'opacity-70'}`} /> {t('navChats')}
             {stats.activeChats > 0 && (
-              <span className="ml-auto bg-[#00f2ff]/20 text-[#00f2ff] text-[10px] px-2 py-0.5 rounded-full font-bold">{stats.activeChats}</span>
+              <span className="ml-auto bg-[#e8192c]/20 text-[#e8192c] text-[10px] px-2 py-0.5 rounded-full font-bold">{stats.activeChats}</span>
             )}
           </button>
 
@@ -265,7 +266,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
             onClick={()=>{setTab('settings'); setIsSidebarOpen(false);}}
             className={`w-full flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${tab === 'settings' ? 'bg-white/10 text-white shadow-sm border border-white/5' : 'text-gray-400 hover:bg-white/5 hover:text-white'}`}
           >
-            <Settings className={`w-4 h-4 mr-3 ${tab === 'settings' ? 'text-[#00f2ff]' : 'opacity-70'}`} /> {t('navSettings')}
+            <Settings className={`w-4 h-4 mr-3 ${tab === 'settings' ? 'text-[#e8192c]' : 'opacity-70'}`} /> {t('navSettings')}
           </button>
         </nav>
 
@@ -295,7 +296,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-[#00f2ff]/10 border border-[#00f2ff]/20 rounded-full text-[#00f2ff] text-xs font-mono">
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-[#e8192c]/10 border border-[#e8192c]/20 rounded-full text-[#e8192c] text-xs font-mono">
               <Activity className="w-3 h-3" /> {t('headerSystemOperational')}
             </div>
           </div>
@@ -315,7 +316,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white/[0.02] border border-white/[0.05] rounded-xl p-6 backdrop-blur-xl shadow-lg hover:border-white/10 transition-colors">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="p-2 bg-[#00f2ff]/10 rounded-lg"><DollarSign className="w-5 h-5 text-[#00f2ff]" /></div>
+                    <div className="p-2 bg-[#e8192c]/10 rounded-lg"><DollarSign className="w-5 h-5 text-[#e8192c]" /></div>
                     <span className="text-xs font-medium text-[#00ff88] bg-[#00ff88]/10 px-2 py-1 rounded-md">+12.5%</span>
                   </div>
                   <h3 className="text-gray-400 text-sm font-medium mb-1">{t('dashTotalRevenue')}</h3>
@@ -363,7 +364,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                     placeholder={t('usersSearchPlaceholder')}
                     value={userSearch}
                     onChange={e => setUserSearch(e.target.value)}
-                    className="w-full md:w-[280px] bg-black/40 border border-white/10 pl-9 pr-4 py-2 rounded-md text-sm text-white focus:outline-none focus:border-[#00f2ff]/50 transition-colors placeholder:text-gray-600"
+                    className="w-full md:w-[280px] bg-black/40 border border-white/10 pl-9 pr-4 py-2 rounded-md text-sm text-white focus:outline-none focus:border-[#e8192c]/50 transition-colors placeholder:text-gray-600"
                   />
                 </div>
               </div>
@@ -389,14 +390,32 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                             </div>
                           </td>
                         </tr>
-                      ) : filteredUsers.map((u:any) => (
+                      ) : filteredUsers.map((u:any) => {
+                        // Real registration/tenant state — u.tenantRegistrationStatus never
+                        // existed on the User model (schema has tenantRegistrationId/Error/
+                        // SubmittedAt instead), so this previously silently never rendered.
+                        // Derive it from the linked Tenant (now included in the query) instead.
+                        const tenant = u.memberships?.[0]?.tenant;
+                        const registrationLabel = u.tenantRegistrationError
+                          ? t('usersRegistrationError')
+                          : tenant
+                          ? tenant.status.charAt(0).toUpperCase() + tenant.status.slice(1)
+                          : u.tenantRegistrationSubmittedAt
+                          ? t('usersRegistrationSubmitted')
+                          : null;
+
+                        return (
                         <tr key={u.id} className="hover:bg-white/[0.02] transition-colors group">
                           <td className="px-6 py-4 align-top">
                             <div className="font-semibold text-white text-sm">{u.companyName || t('usersIndependentClient')}</div>
                             <div className="text-[11px] text-gray-500 font-mono mt-1">{t('usersVat', { value: u.euVat || t('usersNA') })}</div>
-                            {u.adminDomain && <div className="text-[11px] text-[#00f2ff] font-mono mt-1">{t('usersAdminDomain', { value: u.adminDomain })}</div>}
+                            {u.adminDomain && <div className="text-[11px] text-[#e8192c] font-mono mt-1">{t('usersAdminDomain', { value: u.adminDomain })}</div>}
                             {u.customerDomain && <div className="text-[11px] text-[#00ff88] font-mono mt-1">{t('usersPortalDomain', { value: u.customerDomain })}</div>}
-                            {u.tenantRegistrationStatus && <div className="text-[10px] uppercase text-gray-400 mt-1">{t('usersStatus', { value: u.tenantRegistrationStatus })}</div>}
+                            {registrationLabel && (
+                              <div className={twMerge('text-[10px] uppercase mt-1', u.tenantRegistrationError ? 'text-red-400' : 'text-gray-400')} title={u.tenantRegistrationError || undefined}>
+                                {t('usersStatus', { value: registrationLabel })}
+                              </div>
+                            )}
                           </td>
                           <td className="px-6 py-4 align-top">
                             <div className="text-gray-200 text-sm">{u.firstName} {u.lastName}</div>
@@ -404,7 +423,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                               {u.email}
                               <button
                                 onClick={() => { setEmailTo(u.email); setEmailModalOpen(true); }}
-                                className="text-[#00f2ff] hover:text-white transition-colors"
+                                className="text-[#e8192c] hover:text-white transition-colors"
                                 title={t('usersSendEmailTitle')}
                               >
                                 <Mail className="w-3 h-3" />
@@ -445,7 +464,8 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                             )}
                           </td>
                         </tr>
-                      ))}
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
@@ -478,7 +498,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                       <button
                         key={t.id}
                         onClick={() => setSelectedTicketId(t.id)}
-                        className={`w-full text-left p-3 rounded-lg transition-all border ${selectedTicketId === t.id ? 'bg-[#00f2ff]/10 border-[#00f2ff]/20 shadow-sm' : 'bg-transparent border-transparent hover:bg-white/[0.04]'}`}
+                        className={`w-full text-left p-3 rounded-lg transition-all border ${selectedTicketId === t.id ? 'bg-[#e8192c]/10 border-[#e8192c]/20 shadow-sm' : 'bg-transparent border-transparent hover:bg-white/[0.04]'}`}
                       >
                         <div className="flex justify-between items-start mb-1.5">
                           <span className="font-mono text-[10px] text-gray-500">#{t.id.substring(t.id.length - 6).toUpperCase()}</span>
@@ -530,11 +550,11 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                         {/* Replies */}
                         {selectedTicket.replies?.map((r: any) => (
                           <div key={r.id} className={`flex gap-4 ${r.isAdmin ? 'flex-row-reverse' : ''}`}>
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold text-white ${r.isAdmin ? 'bg-gradient-to-br from-[#00f2ff] to-blue-600' : 'bg-white/10'}`}>
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold text-white ${r.isAdmin ? 'bg-gradient-to-br from-[#e8192c] to-blue-600' : 'bg-white/10'}`}>
                               {r.isAdmin ? 'A' : selectedTicket.user?.email?.charAt(0).toUpperCase()}
                             </div>
                             <div className={`flex-1 flex ${r.isAdmin ? 'justify-end' : 'justify-start'}`}>
-                              <div className={`rounded-2xl p-4 text-sm leading-relaxed inline-block max-w-[85%] ${r.isAdmin ? 'bg-[#00f2ff]/10 border border-[#00f2ff]/20 text-white rounded-tr-sm' : 'bg-white/5 border border-white/5 text-gray-300 rounded-tl-sm'}`}>
+                              <div className={`rounded-2xl p-4 text-sm leading-relaxed inline-block max-w-[85%] ${r.isAdmin ? 'bg-[#e8192c]/10 border border-[#e8192c]/20 text-white rounded-tr-sm' : 'bg-white/5 border border-white/5 text-gray-300 rounded-tl-sm'}`}>
                                 {r.message}
                               </div>
                             </div>
@@ -545,7 +565,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                       {/* Reply Input */}
                       {selectedTicket.status === 'OPEN' ? (
                         <div className="p-4 border-t border-white/[0.05] bg-[#0a0a0a] shrink-0">
-                          <div className="flex gap-2 bg-black/40 p-1.5 rounded-lg border border-white/10 focus-within:border-[#00f2ff]/50 transition-colors">
+                          <div className="flex gap-2 bg-black/40 p-1.5 rounded-lg border border-white/10 focus-within:border-[#e8192c]/50 transition-colors">
                             <input
                               type="text"
                               value={replyMsg[selectedTicket.id] || ''}
@@ -604,7 +624,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                       <button
                         key={c.id}
                         onClick={() => setSelectedChatId(c.id)}
-                        className={`w-full text-left p-3 rounded-lg transition-all border ${selectedChatId === c.id ? 'bg-[#00f2ff]/10 border-[#00f2ff]/20' : 'bg-transparent border-transparent hover:bg-white/[0.04]'}`}
+                        className={`w-full text-left p-3 rounded-lg transition-all border ${selectedChatId === c.id ? 'bg-[#e8192c]/10 border-[#e8192c]/20' : 'bg-transparent border-transparent hover:bg-white/[0.04]'}`}
                       >
                         <div className="flex justify-between items-center mb-1">
                           <h4 className="text-white text-sm font-semibold truncate">{c.name}</h4>
@@ -680,32 +700,32 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                 <form onSubmit={updateSmtp} className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-xl overflow-hidden shadow-xl">
                   <div className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-6">
-                      <Mail className="w-5 h-5 text-[#00f2ff]" />
+                      <Mail className="w-5 h-5 text-[#e8192c]" />
                       <h3 className="text-lg font-bold text-white">{t('settingsSmtpTitle')}</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                       <div className="md:col-span-2">
                         <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">{t('settingsHostProvider')}</label>
-                        <input type="text" value={smtpForm.smtpHost} onChange={e=>setSmtpForm({...smtpForm, smtpHost: e.target.value})} placeholder="smtp.mailgun.org" className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#00f2ff]/50 outline-none transition-all placeholder:text-gray-700" />
+                        <input type="text" value={smtpForm.smtpHost} onChange={e=>setSmtpForm({...smtpForm, smtpHost: e.target.value})} placeholder="smtp.mailgun.org" className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#e8192c]/50 outline-none transition-all placeholder:text-gray-700" />
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">{t('settingsAuthKey')}</label>
-                        <input type="email" value={smtpForm.smtpUser} onChange={e=>setSmtpForm({...smtpForm, smtpUser: e.target.value})} className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#00f2ff]/50 outline-none transition-all" />
+                        <input type="email" value={smtpForm.smtpUser} onChange={e=>setSmtpForm({...smtpForm, smtpUser: e.target.value})} className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#e8192c]/50 outline-none transition-all" />
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">{t('settingsSecret')}</label>
-                        <input type="password" value={smtpForm.smtpPass} onChange={e=>setSmtpForm({...smtpForm, smtpPass: e.target.value})} className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#00f2ff]/50 outline-none transition-all" />
+                        <input type="password" value={smtpForm.smtpPass} onChange={e=>setSmtpForm({...smtpForm, smtpPass: e.target.value})} className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#e8192c]/50 outline-none transition-all" />
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">{t('settingsPort')}</label>
-                        <input type="number" value={smtpForm.smtpPort} onChange={e=>setSmtpForm({...smtpForm, smtpPort: parseInt(e.target.value)})} className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#00f2ff]/50 outline-none transition-all font-mono" />
+                        <input type="number" value={smtpForm.smtpPort} onChange={e=>setSmtpForm({...smtpForm, smtpPort: parseInt(e.target.value)})} className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#e8192c]/50 outline-none transition-all font-mono" />
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">{t('settingsEncryption')}</label>
-                        <button type="button" onClick={()=>setSmtpForm({...smtpForm, smtpSecure: !smtpForm.smtpSecure})} className={`w-full flex items-center justify-between border p-3 rounded-lg text-white transition-all h-[46px] ${smtpForm.smtpSecure ? 'bg-[#00f2ff]/10 border-[#00f2ff]/30' : 'bg-black/40 border-white/10'}`}>
+                        <button type="button" onClick={()=>setSmtpForm({...smtpForm, smtpSecure: !smtpForm.smtpSecure})} className={`w-full flex items-center justify-between border p-3 rounded-lg text-white transition-all h-[46px] ${smtpForm.smtpSecure ? 'bg-[#e8192c]/10 border-[#e8192c]/30' : 'bg-black/40 border-white/10'}`}>
                           <span className="text-xs font-semibold">{smtpForm.smtpSecure ? t('settingsSslTls') : t('settingsStartTls')}</span>
-                          <span className={`w-10 h-5 rounded-full relative shrink-0 transition-colors duration-300 ${smtpForm.smtpSecure ? 'bg-[#00f2ff]' : 'bg-white/10'}`}>
+                          <span className={`w-10 h-5 rounded-full relative shrink-0 transition-colors duration-300 ${smtpForm.smtpSecure ? 'bg-[#e8192c]' : 'bg-white/10'}`}>
                             <span className={`absolute top-1 w-3 h-3 rounded-full bg-white transition-all duration-300 ${smtpForm.smtpSecure ? 'left-6' : 'left-1'}`} />
                           </span>
                         </button>
@@ -765,7 +785,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
           <div className="bg-[#0a0a0a] border border-white/10 rounded-xl w-full max-w-lg shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
             <div className="p-4 border-b border-white/10 flex justify-between items-center bg-white/[0.02]">
               <h3 className="text-white font-bold flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#00f2ff]" />
+                <Mail className="w-4 h-4 text-[#e8192c]" />
                 {t('emailModalTitle')}
               </h3>
               <button onClick={() => setEmailModalOpen(false)} className="text-gray-500 hover:text-white transition-colors">
@@ -789,7 +809,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                   value={emailSubject}
                   onChange={e => setEmailSubject(e.target.value)}
                   placeholder={t('emailModalSubjectPlaceholder')}
-                  className="w-full bg-black/40 border border-white/10 p-2.5 rounded-lg text-sm text-white focus:border-[#00f2ff]/50 outline-none transition-all placeholder:text-gray-700"
+                  className="w-full bg-black/40 border border-white/10 p-2.5 rounded-lg text-sm text-white focus:border-[#e8192c]/50 outline-none transition-all placeholder:text-gray-700"
                 />
               </div>
               <div>
@@ -799,7 +819,7 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                   onChange={e => setEmailBody(e.target.value)}
                   rows={6}
                   placeholder={t('emailModalMessagePlaceholder')}
-                  className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#00f2ff]/50 outline-none transition-all placeholder:text-gray-700 custom-scrollbar resize-none"
+                  className="w-full bg-black/40 border border-white/10 p-3 rounded-lg text-sm text-white focus:border-[#e8192c]/50 outline-none transition-all placeholder:text-gray-700 custom-scrollbar resize-none"
                 />
               </div>
             </div>

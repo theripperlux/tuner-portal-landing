@@ -1,12 +1,12 @@
 'use client';
 import { useState } from 'react';
-import { ShieldCheck, Globe, Save, HelpCircle, PlayCircle, LogOut, Building2, Loader2, MessageCircle, AlertCircle, CheckCircle2, Clock } from 'lucide-react';
+import { ShieldCheck, Globe, Save, HelpCircle, PlayCircle, ChevronDown, Building2, Loader2, MessageCircle, AlertCircle, CheckCircle2, Clock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { CopyButton } from '@/components/CopyButton';
+import { SignOutButton } from '@/components/SignOutButton';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
@@ -14,7 +14,7 @@ const HOSTERS = ['United Domains', 'IONOS', 'Host Europe', 'Hetzner', 'netcup', 
 
 function StepBadge({ n }: { n: number }) {
   return (
-    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-500/15 border border-red-500/30 text-red-400 font-bold text-sm shrink-0">
+    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-red-500/15 border border-red-500/30 text-red-400 font-bold text-xs shrink-0">
       {n}
     </span>
   );
@@ -25,6 +25,7 @@ export default function DashboardClient({ user }: { user: any }) {
   const t = useTranslations('Dashboard');
   const [selectedHoster, setSelectedHoster] = useState('IONOS');
   const [showVideo, setShowVideo] = useState(false);
+  const [showHosterSteps, setShowHosterSteps] = useState(false);
   const [form, setForm] = useState({
     companyName: user.companyName || '',
     phone: user.phone || '',
@@ -107,136 +108,142 @@ export default function DashboardClient({ user }: { user: any }) {
               </div>
             </div>
 
-            <button onClick={() => signOut({ callbackUrl: '/' })} className="flex items-center gap-2 text-xs font-semibold text-gray-300 hover:text-white bg-white/5 hover:bg-red-500/15 border border-white/10 hover:border-red-500/30 px-3 py-2 rounded-lg transition-all">
-              <LogOut className="w-4 h-4" /> <span className="hidden sm:inline">{t('logout')}</span>
-            </button>
+            <SignOutButton />
           </div>
         </div>
       </div>
 
-      <div className="max-w-5xl w-full px-4 sm:px-6 relative z-10 pt-10 pb-20">
+      <div className="max-w-5xl w-full px-4 sm:px-6 relative z-10 pt-8 pb-16">
 
         {/* Intro */}
-        <div className="mb-10 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-3">{t('onboardingTitle')}</h1>
-          <p className="text-gray-400 max-w-xl mx-auto leading-relaxed">{t('onboardingSubtitle')}</p>
+        <div className="mb-6 text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">{t('onboardingTitle')}</h1>
+          <p className="text-gray-400 max-w-xl mx-auto leading-relaxed text-sm">{t('onboardingSubtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div className="lg:col-span-2 space-y-5">
 
-            <form onSubmit={saveSettings} className="space-y-6">
+            <form onSubmit={saveSettings} className="space-y-5">
 
-              {/* Step 1: Business details */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-6">
+              {/* Step 1: Your details — business info + domains together, one card */}
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-5 sm:p-6">
+                <div className="flex items-center gap-3 mb-5">
                   <StepBadge n={1} />
                   <div>
-                    <h2 className="text-white font-semibold text-lg leading-tight">{t('step1Title')}</h2>
-                    <p className="text-xs text-gray-500 mt-0.5">{t('step1Desc')}</p>
+                    <h2 className="text-white font-semibold text-base leading-tight">{t('detailsTitle')}</h2>
+                    <p className="text-xs text-gray-500 mt-0.5">{t('detailsDesc')}</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
                   <div>
-                    <label className="block text-xs font-medium text-white/60 mb-2">{t('companyName')}</label>
-                    <input type="text" value={form.companyName} onChange={update('companyName')} disabled={alreadyRegistered} className="w-full bg-black/40 border border-white/10 px-4 py-3 rounded-xl text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all disabled:opacity-50" />
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">{t('companyName')}</label>
+                    <input type="text" value={form.companyName} onChange={update('companyName')} disabled={alreadyRegistered} className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all disabled:opacity-50" />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-white/60 mb-2">{t('phone')}</label>
-                    <input type="tel" value={form.phone} onChange={update('phone')} disabled={alreadyRegistered} placeholder="+49 ..." className="w-full bg-black/40 border border-white/10 px-4 py-3 rounded-xl text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600 disabled:opacity-50" />
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">{t('phone')}</label>
+                    <input type="tel" value={form.phone} onChange={update('phone')} disabled={alreadyRegistered} placeholder="+49 ..." className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600 disabled:opacity-50" />
                   </div>
+                  <div>
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">{t('portalDomain')}</label>
+                    <input type="text" value={form.customerDomain} onChange={update('customerDomain')} disabled={alreadyRegistered} placeholder="portal.your-domain.com" className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600 disabled:opacity-50" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-white/60 mb-1.5">{t('adminDomain')}</label>
+                    <input type="text" value={form.adminDomain} onChange={update('adminDomain')} disabled={alreadyRegistered} placeholder="admin.your-domain.com" className="w-full bg-black/40 border border-white/10 px-3.5 py-2.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600 disabled:opacity-50" />
+                  </div>
+                  <p className="sm:col-span-2 text-[11px] text-gray-500 leading-relaxed">{t('domainHint')}</p>
                 </div>
               </div>
 
-              {/* Step 2: Domain setup */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <StepBadge n={2} />
+              {/* DNS setup — CNAME records reflect the domains entered above */}
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-5 sm:p-6">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/5 border border-white/10 text-gray-400 shrink-0">
+                    <Globe className="w-3.5 h-3.5" />
+                  </span>
                   <div>
-                    <h2 className="text-white font-semibold text-lg leading-tight">{t('step2Title')}</h2>
+                    <h2 className="text-white font-semibold text-base leading-tight">{t('dnsSetup')}</h2>
                     <p className="text-xs text-gray-500 mt-0.5">{t('step2Desc')}</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
-                  <div>
-                    <label className="block text-xs font-medium text-white/60 mb-2">{t('portalDomain')}</label>
-                    <input type="text" value={form.customerDomain} onChange={update('customerDomain')} disabled={alreadyRegistered} placeholder="portal.your-domain.com" className="w-full bg-black/40 border border-white/10 px-4 py-3 rounded-xl text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600 disabled:opacity-50" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-medium text-white/60 mb-2">{t('adminDomain')}</label>
-                    <input type="text" value={form.adminDomain} onChange={update('adminDomain')} disabled={alreadyRegistered} placeholder="admin.your-domain.com" className="w-full bg-black/40 border border-white/10 px-4 py-3 rounded-xl text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all placeholder:text-gray-600 disabled:opacity-50" />
-                  </div>
-                  <p className="sm:col-span-2 -mt-2 text-[11px] text-gray-500 leading-relaxed">{t('domainHint')}</p>
-                </div>
-
-                {/* CNAME records — reflect the domains actually entered above */}
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-black/10 mb-6">
-                  <div className="bg-[#f8f9fa] border-b border-black/5 px-5 py-3 grid grid-cols-12 gap-3 text-[11px] font-bold text-[#1f2937] tracking-wide uppercase">
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-black/10 mb-4">
+                  <div className="bg-[#f8f9fa] border-b border-black/5 px-4 py-2.5 grid grid-cols-12 gap-3 text-[11px] font-bold text-[#1f2937] tracking-wide uppercase">
                     <div className="col-span-5">{t('cnameSubdomainUsage')}</div>
                     <div className="col-span-7">{t('cnameTargetValue')}</div>
                   </div>
 
-                  <div className="bg-white border-b border-black/5 px-5 py-4 grid grid-cols-12 gap-3 items-center">
+                  <div className="bg-white border-b border-black/5 px-4 py-3 grid grid-cols-12 gap-3 items-center">
                     <div className="col-span-5">
-                      <span className="inline-block px-2 py-1 bg-red-100 text-red-700 text-[10px] font-bold rounded uppercase mb-1.5">{t('cnameForAdmin')}</span>
+                      <span className="inline-block px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForAdmin')}</span>
                       <p className={twMerge('text-sm font-semibold', form.adminDomain ? 'text-[#0052cc]' : 'text-gray-400 italic font-normal')}>{form.adminDomain || t('adminDomain')}</p>
                       <p className="text-xs text-gray-400 mt-0.5">{t('cnameType')}</p>
                     </div>
                     <div className="col-span-7 flex items-center gap-2">
-                      <p className="flex-1 min-w-0 text-gray-700 text-xs font-mono bg-gray-50 px-3 py-2 rounded-lg border border-gray-200 select-all truncate">70d64f5d10ce3321.vercel-dns-017.com.</p>
+                      <p className="flex-1 min-w-0 text-gray-700 text-xs font-mono bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 select-all truncate">70d64f5d10ce3321.vercel-dns-017.com.</p>
                       <CopyButton value="70d64f5d10ce3321.vercel-dns-017.com." />
                     </div>
                   </div>
 
-                  <div className="bg-white px-5 py-4 grid grid-cols-12 gap-3 items-center">
+                  <div className="bg-white px-4 py-3 grid grid-cols-12 gap-3 items-center">
                     <div className="col-span-5">
-                      <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold rounded uppercase mb-1.5">{t('cnameForCustomers')}</span>
+                      <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForCustomers')}</span>
                       <p className={twMerge('text-sm font-semibold', form.customerDomain ? 'text-[#0052cc]' : 'text-gray-400 italic font-normal')}>{form.customerDomain || t('portalDomain')}</p>
                       <p className="text-xs text-gray-400 mt-0.5">{t('cnameType')}</p>
                     </div>
                     <div className="col-span-7 flex items-center gap-2">
-                      <p className="flex-1 min-w-0 text-gray-700 text-xs font-mono bg-gray-50 px-3 py-2 rounded-lg border border-gray-200 select-all truncate">2145f1913d58fb07.vercel-dns-017.com.</p>
+                      <p className="flex-1 min-w-0 text-gray-700 text-xs font-mono bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 select-all truncate">2145f1913d58fb07.vercel-dns-017.com.</p>
                       <CopyButton value="2145f1913d58fb07.vercel-dns-017.com." />
                     </div>
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-400 mb-6 flex items-start bg-white/5 p-3 rounded-lg border border-white/10">
-                  <AlertCircle className="w-4 h-4 mr-2.5 mt-0.5 shrink-0 text-gray-500" />
+                <p className="text-xs text-gray-400 mb-4 flex items-start bg-white/5 p-2.5 rounded-lg border border-white/10">
+                  <AlertCircle className="w-4 h-4 mr-2 mt-0.5 shrink-0 text-gray-500" />
                   <span>{t('cnameDotNote')}</span>
                 </p>
 
-                {/* Hoster picker + instructions */}
+                {/* Hoster picker — instructions collapsed by default, expand only if needed */}
                 <div className="border border-white/10 rounded-xl overflow-hidden">
-                  <div className="flex items-center justify-between gap-4 px-5 py-4 bg-white/[0.02]">
+                  <div className="flex items-center justify-between gap-4 px-4 py-3 bg-white/[0.02]">
                     <label className="text-xs font-medium text-white/60 shrink-0">{t('selectHoster')}</label>
                     <select
                       value={selectedHoster}
-                      onChange={(e) => setSelectedHoster(e.target.value)}
-                      className="flex-1 max-w-[220px] bg-black/60 border border-white/10 px-3 py-2 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all cursor-pointer"
+                      onChange={(e) => { setSelectedHoster(e.target.value); setShowHosterSteps(true); }}
+                      className="flex-1 max-w-[220px] bg-black/60 border border-white/10 px-3 py-1.5 rounded-lg text-white text-sm focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all cursor-pointer"
                     >
                       {HOSTERS.map(h => <option key={h} value={h}>{h}</option>)}
                     </select>
                   </div>
-                  <div className="px-5 py-4 border-t border-white/10 bg-black/20">
-                    <p className="text-xs font-semibold text-gray-300 mb-3">{t('hosterInstructionsFor', { name: selectedHoster })}</p>
-                    <ol className="list-decimal list-inside text-sm text-gray-400 space-y-1.5 leading-relaxed">
-                      {hosterSteps.map((step, i) => <li key={i}>{step}</li>)}
-                    </ol>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowHosterSteps(v => !v)}
+                    className="w-full flex items-center justify-between gap-2 px-4 py-2.5 border-t border-white/10 bg-black/20 hover:bg-black/30 transition-colors"
+                  >
+                    <span className="text-xs font-semibold text-gray-300">{t('hosterInstructionsFor', { name: selectedHoster })}</span>
+                    <ChevronDown className={twMerge('w-4 h-4 text-gray-500 transition-transform duration-200', showHosterSteps && 'rotate-180')} />
+                  </button>
+                  {showHosterSteps && (
+                    <div className="px-4 pb-4 pt-1 border-t border-white/10 bg-black/20">
+                      <ol className="list-decimal list-inside text-sm text-gray-400 space-y-1.5 leading-relaxed">
+                        {hosterSteps.map((step, i) => <li key={i}>{step}</li>)}
+                      </ol>
+                    </div>
+                  )}
                 </div>
 
-                {/* Optional video walkthrough — collapsed by default so it doesn't compete with the actual steps */}
+                {/* Optional video walkthrough — collapsed by default */}
                 <button
                   type="button"
                   onClick={() => setShowVideo(v => !v)}
-                  className="mt-6 w-full flex items-center justify-center gap-2 text-sm font-medium text-gray-400 hover:text-white bg-white/[0.02] hover:bg-white/5 border border-white/10 rounded-xl py-3 transition-all"
+                  className="mt-4 w-full flex items-center justify-center gap-2 text-sm font-medium text-gray-400 hover:text-white bg-white/[0.02] hover:bg-white/5 border border-white/10 rounded-xl py-2.5 transition-all"
                 >
                   <PlayCircle className="w-4 h-4" /> {t('videoTutorialToggle')}
                 </button>
                 {showVideo && (
-                  <div className="mt-4 rounded-xl overflow-hidden border border-white/10 bg-black/40">
+                  <div className="mt-3 rounded-xl overflow-hidden border border-white/10 bg-black/40">
                     <video controls className="w-full h-auto max-h-[400px] object-cover bg-black" preload="metadata">
                       <source src="/videos/setup-domain.mp4" type="video/mp4" />
                       {t('videoUnsupported')}
@@ -244,23 +251,23 @@ export default function DashboardClient({ user }: { user: any }) {
                   </div>
                 )}
 
-                <p className="text-xs text-amber-400/80 mt-6 flex items-center bg-amber-500/10 p-3 rounded-lg border border-amber-500/20">
-                  <ShieldCheck className="w-4 h-4 mr-2.5 shrink-0" /> {t('sslInfo')}
+                <p className="text-xs text-amber-400/80 mt-4 flex items-center bg-amber-500/10 p-2.5 rounded-lg border border-amber-500/20">
+                  <ShieldCheck className="w-4 h-4 mr-2 shrink-0" /> {t('sslInfo')}
                 </p>
               </div>
 
-              {/* Step 3: Activate */}
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <StepBadge n={3} />
+              {/* Step 2: Activate */}
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-5 sm:p-6">
+                <div className="flex items-center gap-3 mb-5">
+                  <StepBadge n={2} />
                   <div>
-                    <h2 className="text-white font-semibold text-lg leading-tight">{t('step3Title')}</h2>
+                    <h2 className="text-white font-semibold text-base leading-tight">{t('step3Title')}</h2>
                     <p className="text-xs text-gray-500 mt-0.5">{t('step3Desc')}</p>
                   </div>
                 </div>
 
                 {isApproved ? (
-                  <div className="p-5 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex items-start gap-3">
+                  <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
                       <p className="text-emerald-400 font-semibold text-sm">{t('regApprovedTitle')}</p>
@@ -268,7 +275,7 @@ export default function DashboardClient({ user }: { user: any }) {
                     </div>
                   </div>
                 ) : alreadyRegistered ? (
-                  <div className="p-5 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-start gap-3">
+                  <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-start gap-3">
                     <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                     <div>
                       <p className="text-amber-400 font-semibold text-sm">{t('regPendingTitle')}</p>
@@ -277,7 +284,7 @@ export default function DashboardClient({ user }: { user: any }) {
                   </div>
                 ) : (
                   <>
-                    <button type="submit" disabled={submitting} className="flex items-center justify-center w-full px-6 py-4 bg-red-500 hover:bg-red-600 text-white font-semibold text-sm rounded-xl transition-all tracking-wide disabled:opacity-50 disabled:cursor-not-allowed">
+                    <button type="submit" disabled={submitting} className="flex items-center justify-center w-full px-6 py-3.5 bg-red-500 hover:bg-red-600 text-white font-semibold text-sm rounded-xl transition-all tracking-wide disabled:opacity-50 disabled:cursor-not-allowed">
                       {submitting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
                       {submitting ? t('saving') : t('registerPortal')}
                     </button>
@@ -298,16 +305,16 @@ export default function DashboardClient({ user }: { user: any }) {
           </div>
 
           {/* Support — always available, no gating on setup completion */}
-          <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 sm:p-8 h-fit lg:sticky lg:top-24">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-5 sm:p-6 h-fit lg:sticky lg:top-24">
+            <div className="flex items-center gap-3 mb-3">
               <HelpCircle className="w-5 h-5 text-gray-500" />
-              <h2 className="text-white font-semibold text-lg">{t('support')}</h2>
+              <h2 className="text-white font-semibold text-base">{t('support')}</h2>
             </div>
-            <p className="text-sm text-gray-400 mb-6 leading-relaxed">{t('supportDesc')}</p>
-            <Link href="mailto:support@tunerportal.com" className="w-full flex justify-center items-center px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm rounded-xl transition-all border border-white/10">
+            <p className="text-sm text-gray-400 mb-4 leading-relaxed">{t('supportDesc')}</p>
+            <Link href="mailto:support@tunerportal.com" className="w-full flex justify-center items-center px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm rounded-xl transition-all border border-white/10">
               <MessageCircle className="w-4 h-4 mr-2" /> {t('contactSupport')}
             </Link>
-            <div className="mt-6 pt-6 border-t border-white/10 flex items-start gap-3">
+            <div className="mt-5 pt-5 border-t border-white/10 flex items-start gap-3">
               <Building2 className="w-4 h-4 text-gray-600 shrink-0 mt-0.5" />
               <p className="text-xs text-gray-500 leading-relaxed">{t('onboardingSidebarNote')}</p>
             </div>

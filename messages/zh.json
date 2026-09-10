@@ -287,7 +287,17 @@
     "activationMessage": "启用最多可能需要 1-5 小时，之后您的门户将在以下地址完全上线：\n管理后台：{admin}\n客户端：{customer}",
     "supportDesc": "对设置域名或门户有疑问吗？欢迎随时联系我们——即使您的设置尚未完成，我们的团队也很乐意为您提供帮助。",
     "contactSupport": "联系支持",
-    "onboardingSidebarNote": "在 DNS 记录生效后，您的门户通常会在启用后的几小时内上线。"
+    "onboardingSidebarNote": "在 DNS 记录生效后，您的门户通常会在启用后的几小时内上线。",
+    "detailsTitle": "您的信息",
+    "detailsDesc": "企业信息和域名",
+    "overviewWelcome": "欢迎回来，{name}",
+    "overviewWelcomeGeneric": "欢迎回来",
+    "overviewLiveTitle": "您的门户已上线",
+    "overviewLiveDesc": "您的白标调校门户已正式启用。请将以下链接分享给您的团队和客户。",
+    "overviewAdminPortalLabel": "管理后台门户",
+    "overviewCustomerPortalLabel": "客户门户",
+    "overviewCompanyLabel": "公司",
+    "overviewNeedChanges": "需要更新您的域名或公司信息吗？请联系支持团队，我们很乐意为您提供帮助。"
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "邮件发送成功！",
     "emailModalSendFailed": "邮件发送失败：{error}",
     "emailModalUnknownError": "未知错误",
-    "emailModalSendError": "发送邮件时出现错误。"
+    "emailModalSendError": "发送邮件时出现错误。",
+    "usersRegistrationError": "注册错误",
+    "usersRegistrationSubmitted": "已提交"
   }
 }

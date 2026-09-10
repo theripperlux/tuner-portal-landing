@@ -287,7 +287,17 @@
     "activationMessage": "قد يستغرق التفعيل من 1 إلى 5 ساعات حتى تعمل بوابتك بالكامل على:\nالإدارة: {admin}\nالعملاء: {customer}",
     "supportDesc": "هل لديك أسئلة حول إعداد نطاقك أو بوابتك؟ تواصل معنا في أي وقت — يسعد فريقنا بمساعدتك، حتى قبل اكتمال الإعداد.",
     "contactSupport": "تواصل مع الدعم",
-    "onboardingSidebarNote": "عادةً ما تعمل بوابتك خلال بضع ساعات من التفعيل، بمجرد انتشار سجلات DNS الخاصة بك."
+    "onboardingSidebarNote": "عادةً ما تعمل بوابتك خلال بضع ساعات من التفعيل، بمجرد انتشار سجلات DNS الخاصة بك.",
+    "detailsTitle": "بياناتك",
+    "detailsDesc": "معلومات الشركة والنطاقات",
+    "overviewWelcome": "مرحبًا بعودتك، {name}",
+    "overviewWelcomeGeneric": "مرحبًا بعودتك",
+    "overviewLiveTitle": "بوابتك أصبحت مباشرة الآن",
+    "overviewLiveDesc": "بوابة التيونينغ الخاصة بك بعلامتك البيضاء تعمل الآن. شارك هذه الروابط مع فريقك وعملائك.",
+    "overviewAdminPortalLabel": "بوابة الإدارة",
+    "overviewCustomerPortalLabel": "بوابة العملاء",
+    "overviewCompanyLabel": "الشركة",
+    "overviewNeedChanges": "هل تحتاج إلى تحديث نطاقك أو بيانات شركتك؟ تواصل مع الدعم وسنكون سعداء بمساعدتك."
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "تم إرسال البريد الإلكتروني بنجاح!",
     "emailModalSendFailed": "فشل إرسال البريد الإلكتروني: {error}",
     "emailModalUnknownError": "خطأ غير معروف",
-    "emailModalSendError": "حدث خطأ أثناء إرسال البريد الإلكتروني."
+    "emailModalSendError": "حدث خطأ أثناء إرسال البريد الإلكتروني.",
+    "usersRegistrationError": "خطأ في التسجيل",
+    "usersRegistrationSubmitted": "تم الإرسال"
   }
 }

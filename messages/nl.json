@@ -287,7 +287,17 @@
     "activationMessage": "Activering kan 1 tot 5 uur duren voordat je portal volledig live staat op:\nAdmin: {admin}\nKlant: {customer}",
     "supportDesc": "Vragen over het instellen van je domein of portal? Neem gerust contact met ons op — ons team helpt je graag, ook voordat je installatie is voltooid.",
     "contactSupport": "Contact opnemen met support",
-    "onboardingSidebarNote": "Je portal is meestal binnen enkele uren na activering live, zodra je DNS-records zijn doorgevoerd."
+    "onboardingSidebarNote": "Je portal is meestal binnen enkele uren na activering live, zodra je DNS-records zijn doorgevoerd.",
+    "detailsTitle": "Jouw gegevens",
+    "detailsDesc": "Bedrijfsinfo en domeinen",
+    "overviewWelcome": "Welkom terug, {name}",
+    "overviewWelcomeGeneric": "Welkom terug",
+    "overviewLiveTitle": "Je portal is live",
+    "overviewLiveDesc": "Je white-label tuningportal is actief. Deel deze links met je team en klanten.",
+    "overviewAdminPortalLabel": "Adminportal",
+    "overviewCustomerPortalLabel": "Klantenportal",
+    "overviewCompanyLabel": "Bedrijf",
+    "overviewNeedChanges": "Wil je je domein of bedrijfsgegevens wijzigen? Neem contact op met support, we helpen je graag."
   },
   "HomeRedesign": {
     "heroBadge": "Het Besturingssysteem voor uw Tuning Portal",
@@ -1193,7 +1203,9 @@
     "emailModalSentSuccess": "E-mail succesvol verstuurd!",
     "emailModalSendFailed": "E-mail versturen mislukt: {error}",
     "emailModalUnknownError": "Onbekende fout",
-    "emailModalSendError": "Fout bij het versturen van de e-mail."
+    "emailModalSendError": "Fout bij het versturen van de e-mail.",
+    "usersRegistrationError": "Registratiefout",
+    "usersRegistrationSubmitted": "Verzonden"
   },
   "Showcase": {
     "title": "Mogelijkheden van het platform",

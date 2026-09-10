@@ -2,111 +2,100 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { FileCode, Ticket, CreditCard, Activity, AlertCircle } from 'lucide-react';
-import { DashboardOverview as DashboardOverviewType, DashboardWidgetState } from '@/types/dashboard';
+import { CheckCircle2, ExternalLink, Building2, HelpCircle, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
+import { DashboardOverview as DashboardOverviewType } from '@/types/dashboard';
 
-export default function DashboardOverview({ data }: { data: DashboardOverviewType }) {
+/**
+ * The real day-to-day product lives on the tenant's own deployed portal
+ * (the domains configured during onboarding), not inside tunerportal — this
+ * is the front door, not the application. So once a tenant is active,
+ * there's genuinely little to do here beyond confirming the portal is live
+ * and surfacing the links — not a second, smaller copy of a SaaS dashboard.
+ */
+export default function DashboardOverview({
+  data,
+  adminDomain,
+  customerDomain,
+}: {
+  data: DashboardOverviewType;
+  adminDomain: string | null;
+  customerDomain: string | null;
+}) {
   const t = useTranslations('Dashboard');
-
-  const renderMetric = (name: string, state: DashboardWidgetState<any>, getValue: (d: any) => string | number, Icon: any, color: string, bg: string) => {
-    return (
-      <div className="relative bg-white dark:bg-gray-800 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden border border-gray-100 dark:border-gray-700">
-        <dt>
-          <div className={`absolute rounded-md p-3 ${bg}`}>
-            <Icon className={`h-6 w-6 ${color}`} aria-hidden="true" />
-          </div>
-          <p className="ml-16 text-sm font-medium text-gray-500 dark:text-gray-400 truncate">{name}</p>
-        </dt>
-        <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
-          {state.status === "ready" ? (
-            <p className="text-2xl font-semibold text-gray-900 dark:text-white">{getValue(state.data)}</p>
-          ) : state.status === "empty" ? (
-            <p className="text-2xl font-semibold text-gray-400">0</p>
-          ) : (
-            <p className="text-sm font-semibold text-red-500 flex items-center"><AlertCircle className="w-4 h-4 mr-1" /> N/A</p>
-          )}
-        </dd>
-      </div>
-    );
-  };
+  const companyName = data.tenant.status === 'ready' ? data.tenant.data.name : '';
 
   return (
-    <div data-testid="dashboard-overview" className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
-          Willkommen zurück, {data.profile.status === "ready" ? data.profile.data.name : "Kunde"}
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          {companyName ? t('overviewWelcome', { name: companyName }) : t('overviewWelcomeGeneric')}
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {renderMetric('Verfügbare Credits', data.credits, d => d.available, CreditCard, 'text-indigo-600', 'bg-indigo-100')}
-        {renderMetric('Offene Tickets', data.tickets, d => d.openCount, Ticket, 'text-blue-600', 'bg-blue-100')}
-        {renderMetric('Aktive Files', data.files, d => d.activeCount, FileCode, 'text-green-600', 'bg-green-100')}
-        {/* Placeholder System Status (Activity) for now */}
-        {renderMetric('System Status', { status: "ready", data: { status: "Online" }, updatedAt: "" }, d => d.status, Activity, 'text-emerald-600', 'bg-emerald-100')}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-        {/* Tickets Widget */}
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-100 dark:border-gray-700">
-          <div className="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Letzte Tickets</h3>
+      {/* Live status */}
+      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 sm:p-8">
+        <div className="flex items-start gap-3 mb-6">
+          <span className="flex items-center justify-center w-9 h-9 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 shrink-0">
+            <CheckCircle2 className="w-5 h-5" />
+          </span>
+          <div>
+            <h2 className="text-white font-semibold text-lg leading-tight">{t('overviewLiveTitle')}</h2>
+            <p className="text-sm text-gray-400 mt-1 leading-relaxed">{t('overviewLiveDesc')}</p>
           </div>
-          {data.tickets.status === "ready" ? (
-            <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-              {data.tickets.data.recentTickets.map((ticket) => (
-                <li key={ticket.id} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                  <div className="flex justify-between">
-                    <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 truncate">#{ticket.publicReference} - {ticket.subject}</p>
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${ticket.status === 'OPEN' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
-                      {ticket.status}
-                    </span>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-1">{new Date(ticket.createdAt).toLocaleDateString()}</p>
-                </li>
-              ))}
-            </ul>
-          ) : data.tickets.status === "empty" ? (
-            <div className="p-6 text-center text-sm text-gray-500 italic">
-              <p className="font-semibold text-gray-700 dark:text-gray-300 mb-1">{data.tickets.emptyState.title}</p>
-              {data.tickets.emptyState.description}
-            </div>
-          ) : (
-             <div className="p-6 text-center text-sm text-red-500 flex items-center justify-center">
-                <AlertCircle className="w-5 h-5 mr-2" /> Daten nicht verfügbar
-             </div>
-          )}
         </div>
 
-        {/* Files Widget */}
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg border border-gray-100 dark:border-gray-700">
-          <div className="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Letzte Tuning-Files</h3>
-          </div>
-          {data.files.status === "ready" ? (
-            <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-              {data.files.data.recentFiles.map((file) => (
-                <li key={file.id} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                  <div className="flex justify-between">
-                    <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 truncate">#{file.publicReference}</p>
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${file.status === 'COMPLETED' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
-                      {file.status}
-                    </span>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-1">{new Date(file.createdAt).toLocaleDateString()}</p>
-                </li>
-              ))}
-            </ul>
-          ) : data.files.status === "empty" ? (
-            <div className="p-6 text-center text-sm text-gray-500 italic">
-              <p className="font-semibold text-gray-700 dark:text-gray-300 mb-1">{data.files.emptyState.title}</p>
-              {data.files.emptyState.description}
-            </div>
-          ) : (
-             <div className="p-6 text-center text-sm text-red-500 flex items-center justify-center">
-                <AlertCircle className="w-5 h-5 mr-2" /> Daten nicht verfügbar
-             </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {adminDomain && (
+            <a
+              href={`https://${adminDomain}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 rounded-xl px-5 py-4 transition-colors group"
+            >
+              <div className="min-w-0">
+                <span className="inline-block px-2 py-0.5 bg-red-500/15 text-red-400 text-[10px] font-bold rounded uppercase mb-1.5">{t('overviewAdminPortalLabel')}</span>
+                <p className="text-sm font-semibold text-white truncate">{adminDomain}</p>
+              </div>
+              <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors shrink-0" />
+            </a>
           )}
+          {customerDomain && (
+            <a
+              href={`https://${customerDomain}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-3 bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 rounded-xl px-5 py-4 transition-colors group"
+            >
+              <div className="min-w-0">
+                <span className="inline-block px-2 py-0.5 bg-blue-500/15 text-blue-400 text-[10px] font-bold rounded uppercase mb-1.5">{t('overviewCustomerPortalLabel')}</span>
+                <p className="text-sm font-semibold text-white truncate">{customerDomain}</p>
+              </div>
+              <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-white transition-colors shrink-0" />
+            </a>
+          )}
+        </div>
+      </div>
+
+      {/* Company recap + support */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
+          <div className="flex items-center gap-3 mb-3">
+            <Building2 className="w-4 h-4 text-gray-500" />
+            <h3 className="text-white font-semibold text-sm">{t('overviewCompanyLabel')}</h3>
+          </div>
+          <p className="text-sm text-gray-300">{companyName}</p>
+        </div>
+
+        <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
+          <div className="flex items-center gap-3 mb-3">
+            <HelpCircle className="w-4 h-4 text-gray-500" />
+            <h3 className="text-white font-semibold text-sm">{t('support')}</h3>
+          </div>
+          <p className="text-xs text-gray-400 mb-4 leading-relaxed">{t('overviewNeedChanges')}</p>
+          <Link href="mailto:support@tunerportal.com" className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/10 px-3 py-2 rounded-lg transition-all">
+            <MessageCircle className="w-3.5 h-3.5" /> {t('contactSupport')}
+          </Link>
         </div>
       </div>
     </div>

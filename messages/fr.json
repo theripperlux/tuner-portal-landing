@@ -287,7 +287,17 @@
     "activationMessage": "L'activation peut prendre 1 à 5 heures avant que votre portail soit pleinement en ligne à :\nAdmin : {admin}\nClient : {customer}",
     "supportDesc": "Des questions sur la configuration de votre domaine ou de votre portail ? Contactez-nous à tout moment — notre équipe est ravie de vous aider, même avant la fin de votre configuration.",
     "contactSupport": "Contacter le support",
-    "onboardingSidebarNote": "Votre portail est généralement en ligne quelques heures après l'activation, une fois que vos enregistrements DNS se sont propagés."
+    "onboardingSidebarNote": "Votre portail est généralement en ligne quelques heures après l'activation, une fois que vos enregistrements DNS se sont propagés.",
+    "detailsTitle": "Vos informations",
+    "detailsDesc": "Infos de l'entreprise et domaines",
+    "overviewWelcome": "Bon retour, {name}",
+    "overviewWelcomeGeneric": "Bon retour",
+    "overviewLiveTitle": "Votre portail est en ligne",
+    "overviewLiveDesc": "Votre portail de tuning en marque blanche est opérationnel. Partagez ces liens avec votre équipe et vos clients.",
+    "overviewAdminPortalLabel": "Portail admin",
+    "overviewCustomerPortalLabel": "Portail client",
+    "overviewCompanyLabel": "Entreprise",
+    "overviewNeedChanges": "Besoin de modifier votre domaine ou vos informations d'entreprise ? Contactez le support, nous serons ravis de vous aider."
   },
   "HomeRedesign": {
     "heroBadge": "Le système d'exploitation pour votre activité Tuning",
@@ -1193,7 +1203,9 @@
     "emailModalSentSuccess": "E-mail envoyé avec succès !",
     "emailModalSendFailed": "Échec de l'envoi de l'e-mail : {error}",
     "emailModalUnknownError": "Erreur inconnue",
-    "emailModalSendError": "Erreur lors de l'envoi de l'e-mail."
+    "emailModalSendError": "Erreur lors de l'envoi de l'e-mail.",
+    "usersRegistrationError": "Erreur d'inscription",
+    "usersRegistrationSubmitted": "Envoyé"
   },
   "Showcase": {
     "title": "Fonctionnalités de la plateforme",

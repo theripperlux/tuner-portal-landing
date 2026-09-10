@@ -287,7 +287,17 @@
     "activationMessage": "Активация может занять от 1 до 5 часов, прежде чем ваш портал полностью заработает по адресам:\nАдмин: {admin}\nКлиент: {customer}",
     "supportDesc": "Есть вопросы по настройке домена или портала? Свяжитесь с нами в любое время — наша команда с радостью поможет, даже если настройка ещё не завершена.",
     "contactSupport": "Связаться с поддержкой",
-    "onboardingSidebarNote": "Обычно портал запускается в течение нескольких часов после активации, как только обновятся ваши DNS-записи."
+    "onboardingSidebarNote": "Обычно портал запускается в течение нескольких часов после активации, как только обновятся ваши DNS-записи.",
+    "detailsTitle": "Ваши данные",
+    "detailsDesc": "Информация о компании и домены",
+    "overviewWelcome": "С возвращением, {name}",
+    "overviewWelcomeGeneric": "С возвращением",
+    "overviewLiveTitle": "Ваш портал запущен",
+    "overviewLiveDesc": "Ваш тюнинг-портал под собственным брендом работает. Поделитесь этими ссылками с командой и клиентами.",
+    "overviewAdminPortalLabel": "Админ-портал",
+    "overviewCustomerPortalLabel": "Клиентский портал",
+    "overviewCompanyLabel": "Компания",
+    "overviewNeedChanges": "Нужно изменить домен или данные компании? Свяжитесь с поддержкой — мы с радостью поможем."
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "Письмо успешно отправлено!",
     "emailModalSendFailed": "Не удалось отправить письмо: {error}",
     "emailModalUnknownError": "Неизвестная ошибка",
-    "emailModalSendError": "Ошибка при отправке письма."
+    "emailModalSendError": "Ошибка при отправке письма.",
+    "usersRegistrationError": "Ошибка регистрации",
+    "usersRegistrationSubmitted": "Отправлено"
   }
 }

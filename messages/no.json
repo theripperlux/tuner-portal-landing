@@ -287,7 +287,17 @@
     "activationMessage": "Aktiveringen kan ta 1-5 timer før portalen din er helt live på:\nAdmin: {admin}\nKunde: {customer}",
     "supportDesc": "Har du spørsmål om hvordan du setter opp domenet eller portalen din? Ta kontakt når som helst — teamet vårt hjelper deg gjerne, selv før oppsettet er fullført.",
     "contactSupport": "Kontakt support",
-    "onboardingSidebarNote": "Portalen din er som regel live i løpet av noen timer etter aktivering, når DNS-oppføringene dine har spredt seg."
+    "onboardingSidebarNote": "Portalen din er som regel live i løpet av noen timer etter aktivering, når DNS-oppføringene dine har spredt seg.",
+    "detailsTitle": "Dine opplysninger",
+    "detailsDesc": "Bedriftsinfo og domener",
+    "overviewWelcome": "Velkommen tilbake, {name}",
+    "overviewWelcomeGeneric": "Velkommen tilbake",
+    "overviewLiveTitle": "Portalen din er live",
+    "overviewLiveDesc": "Din white label-tuningportal er oppe og går. Del disse lenkene med teamet og kundene dine.",
+    "overviewAdminPortalLabel": "Adminportal",
+    "overviewCustomerPortalLabel": "Kundeportal",
+    "overviewCompanyLabel": "Bedrift",
+    "overviewNeedChanges": "Trenger du å oppdatere domenet eller bedriftsopplysningene dine? Kontakt support, vi hjelper gjerne til."
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "E-post sendt!",
     "emailModalSendFailed": "Kunne ikke sende e-post: {error}",
     "emailModalUnknownError": "Ukjent feil",
-    "emailModalSendError": "Feil ved sending av e-post."
+    "emailModalSendError": "Feil ved sending av e-post.",
+    "usersRegistrationError": "Registreringsfeil",
+    "usersRegistrationSubmitted": "Sendt inn"
   }
 }

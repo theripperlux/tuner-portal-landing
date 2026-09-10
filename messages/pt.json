@@ -287,7 +287,17 @@
     "activationMessage": "A ativação pode demorar entre 1 a 5 horas até o seu portal estar totalmente online em:\nAdmin: {admin}\nCliente: {customer}",
     "supportDesc": "Tem dúvidas sobre a configuração do seu domínio ou portal? Contacte-nos a qualquer momento — a nossa equipa terá todo o gosto em ajudar, mesmo antes de a configuração estar concluída.",
     "contactSupport": "Contactar suporte",
-    "onboardingSidebarNote": "O seu portal fica geralmente online poucas horas após a ativação, assim que os registos DNS forem propagados."
+    "onboardingSidebarNote": "O seu portal fica geralmente online poucas horas após a ativação, assim que os registos DNS forem propagados.",
+    "detailsTitle": "Os seus dados",
+    "detailsDesc": "Dados da empresa e domínios",
+    "overviewWelcome": "Bem-vindo de volta, {name}",
+    "overviewWelcomeGeneric": "Bem-vindo de volta",
+    "overviewLiveTitle": "O seu portal está online",
+    "overviewLiveDesc": "O seu portal de tuning de marca branca está em funcionamento. Partilhe estes links com a sua equipa e clientes.",
+    "overviewAdminPortalLabel": "Portal de administração",
+    "overviewCustomerPortalLabel": "Portal de clientes",
+    "overviewCompanyLabel": "Empresa",
+    "overviewNeedChanges": "Precisa de atualizar o seu domínio ou dados da empresa? Contacte o suporte, teremos todo o gosto em ajudar."
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "E-mail enviado com sucesso!",
     "emailModalSendFailed": "Falha ao enviar e-mail: {error}",
     "emailModalUnknownError": "Erro desconhecido",
-    "emailModalSendError": "Erro ao enviar o e-mail."
+    "emailModalSendError": "Erro ao enviar o e-mail.",
+    "usersRegistrationError": "Erro de registo",
+    "usersRegistrationSubmitted": "Enviado"
   }
 }

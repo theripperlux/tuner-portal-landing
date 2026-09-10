@@ -287,7 +287,17 @@
     "activationMessage": "Activation can take 1-5 hours until your portal is fully live at:\nAdmin: {admin}\nCustomer: {customer}",
     "supportDesc": "Have questions about setting up your domain or portal? Reach out any time — our team is happy to help, even before your setup is complete.",
     "contactSupport": "Contact Support",
-    "onboardingSidebarNote": "Your portal typically goes live within a few hours of activation, once your DNS records have propagated."
+    "onboardingSidebarNote": "Your portal typically goes live within a few hours of activation, once your DNS records have propagated.",
+    "detailsTitle": "Your Details",
+    "detailsDesc": "Business info and domains",
+    "overviewWelcome": "Welcome back, {name}",
+    "overviewWelcomeGeneric": "Welcome back",
+    "overviewLiveTitle": "Your portal is live",
+    "overviewLiveDesc": "Your white-label tuning portal is up and running. Share these links with your team and customers.",
+    "overviewAdminPortalLabel": "Admin Portal",
+    "overviewCustomerPortalLabel": "Customer Portal",
+    "overviewCompanyLabel": "Company",
+    "overviewNeedChanges": "Need to update your domain or company details? Contact support and we will help."
   },
   "Showcase": {
     "title": "Platform Capabilities",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "Email sent successfully!",
     "emailModalSendFailed": "Failed to send email: {error}",
     "emailModalUnknownError": "Unknown error",
-    "emailModalSendError": "Error sending email."
+    "emailModalSendError": "Error sending email.",
+    "usersRegistrationError": "Registration Error",
+    "usersRegistrationSubmitted": "Submitted"
   }
 }

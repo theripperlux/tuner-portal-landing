@@ -24,6 +24,7 @@ export default async function AdminPage({ params }: { params: Promise<{ locale: 
   }
 
   const users = await prisma.user.findMany({
+    include: { memberships: { include: { tenant: true } } },
     orderBy: { createdAt: 'desc' }
   });
 

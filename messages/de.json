@@ -287,7 +287,17 @@
     "activationMessage": "Die Aktivierung kann 1-5 Stunden dauern, bis dein Portal vollständig läuft unter:\nAdmin: {admin}\nKunden: {customer}",
     "supportDesc": "Fragen zur Einrichtung deiner Domain oder deines Portals? Melde dich jederzeit bei uns — unser Team hilft gerne, auch bevor dein Setup abgeschlossen ist.",
     "contactSupport": "Support kontaktieren",
-    "onboardingSidebarNote": "Dein Portal geht in der Regel innerhalb weniger Stunden nach der Aktivierung live, sobald deine DNS-Einträge propagiert sind."
+    "onboardingSidebarNote": "Dein Portal geht in der Regel innerhalb weniger Stunden nach der Aktivierung live, sobald deine DNS-Einträge propagiert sind.",
+    "detailsTitle": "Deine Daten",
+    "detailsDesc": "Firmeninfos und Domains",
+    "overviewWelcome": "Willkommen zurück, {name}",
+    "overviewWelcomeGeneric": "Willkommen zurück",
+    "overviewLiveTitle": "Dein Portal ist live",
+    "overviewLiveDesc": "Dein White-Label-Tuning-Portal läuft. Teile diese Links mit deinem Team und deinen Kunden.",
+    "overviewAdminPortalLabel": "Admin-Portal",
+    "overviewCustomerPortalLabel": "Kunden-Portal",
+    "overviewCompanyLabel": "Unternehmen",
+    "overviewNeedChanges": "Möchtest du deine Domain oder Firmendaten ändern? Kontaktiere den Support, wir helfen gerne."
   },
   "Showcase": {
     "title": "Plattform Fähigkeiten",
@@ -1235,6 +1245,8 @@
     "emailModalSentSuccess": "E-Mail erfolgreich gesendet!",
     "emailModalSendFailed": "E-Mail konnte nicht gesendet werden: {error}",
     "emailModalUnknownError": "Unbekannter Fehler",
-    "emailModalSendError": "Fehler beim Senden der E-Mail."
+    "emailModalSendError": "Fehler beim Senden der E-Mail.",
+    "usersRegistrationError": "Registrierungsfehler",
+    "usersRegistrationSubmitted": "Eingereicht"
   }
 }

@@ -287,7 +287,17 @@
     "activationMessage": "L'attivazione può richiedere da 1 a 5 ore prima che il tuo portale sia pienamente online su:\nAdmin: {admin}\nCliente: {customer}",
     "supportDesc": "Hai domande sulla configurazione del tuo dominio o portale? Contattaci in qualsiasi momento: il nostro team è felice di aiutarti, anche prima che la configurazione sia completata.",
     "contactSupport": "Contatta il supporto",
-    "onboardingSidebarNote": "Il tuo portale va solitamente online entro poche ore dall'attivazione, una volta propagati i tuoi record DNS."
+    "onboardingSidebarNote": "Il tuo portale va solitamente online entro poche ore dall'attivazione, una volta propagati i tuoi record DNS.",
+    "detailsTitle": "I tuoi dati",
+    "detailsDesc": "Dati aziendali e domini",
+    "overviewWelcome": "Bentornato, {name}",
+    "overviewWelcomeGeneric": "Bentornato",
+    "overviewLiveTitle": "Il tuo portale è online",
+    "overviewLiveDesc": "Il tuo portale di tuning white-label è attivo e funzionante. Condividi questi link con il tuo team e i tuoi clienti.",
+    "overviewAdminPortalLabel": "Portale amministratore",
+    "overviewCustomerPortalLabel": "Portale clienti",
+    "overviewCompanyLabel": "Azienda",
+    "overviewNeedChanges": "Devi aggiornare il tuo dominio o i dati aziendali? Contatta il supporto, saremo felici di aiutarti."
   },
   "HomeRedesign": {
     "heroBadge": "Il Sistema Operativo per il tuo Business di Tuning",
@@ -1193,7 +1203,9 @@
     "emailModalSentSuccess": "Email inviata con successo!",
     "emailModalSendFailed": "Invio email non riuscito: {error}",
     "emailModalUnknownError": "Errore sconosciuto",
-    "emailModalSendError": "Errore durante l'invio dell'email."
+    "emailModalSendError": "Errore durante l'invio dell'email.",
+    "usersRegistrationError": "Errore di registrazione",
+    "usersRegistrationSubmitted": "Inviato"
   },
   "Showcase": {
     "title": "Funzionalità della piattaforma",
