@@ -1,0 +1,397 @@
+[
+  {
+    "id": "settings_general",
+    "path": "/settings",
+    "image": "settings_general.png",
+    "translations": {
+      "de": {
+        "title": "Allgemeine Einstellungen (General)",
+        "description": "Im Reiter 'General' definierst du die grundlegenden Plattform- und Rechnungseinstellungen. Gehe die folgenden Blöcke Schritt für Schritt durch:\n\n**1. Platform:**\n- **Default Language:** Wähle die Standardsprache (z.B. 'en' oder 'de'). Diese wird als Fallback-Sprache für System-E-Mails genutzt.\n- **Currency:** Lege deine Standardwährung (z.B. EUR) fest. Diese gilt für Kreditpakete, Produkte und Rechnungen.\n\n**2. Invoice Numbering:**\n- **Invoice Prefix:** Ein Textkürzel, das vor der eigentlichen Rechnungsnummer steht (z.B. 'INV-').\n- **Start Number:** Die Startnummer für deine Rechnungen. Die finale Nummer setzt sich aus Prefix und der hochzählenden Nummer zusammen.\n- **Invoice Footer Note:** Platz für Zahlungsinformationen, rechtliche Hinweise oder eine Danksagung auf der Rechnung.\n\n**3. Invoice Logo:**\n- Lade hier das Logo hoch, das oben auf deinen PDF-Rechnungen angezeigt werden soll. Erlaubt sind PNG, JPG, SVG oder WebP (max. 2MB).\n\nVergiss nicht, unten rechts auf **Save Changes** zu klicken, wenn du fertig bist!"
+      },
+      "en": {
+        "title": "General Settings",
+        "description": "In the 'General' tab, you define the core platform and invoicing settings. Go through the following sections step by step:\n\n**1. Platform:**\n- **Default Language:** Select the default language (e.g., 'en' or 'de'). This acts as the fallback language for system emails.\n- **Currency:** Set your default currency (e.g., EUR). This is used for credit packages, products, and invoices.\n\n**2. Invoice Numbering:**\n- **Invoice Prefix:** Text placed before the invoice number (e.g., 'INV-').\n- **Start Number:** The starting point for your invoices. The final number is a combination of the prefix and the incrementing number.\n- **Invoice Footer Note:** Add payment terms, legal notes, or a thank-you message that will appear on invoices.\n\n**3. Invoice Logo:**\n- Upload the logo that should be displayed on your PDF invoices. Supported formats: PNG, JPG, SVG, or WebP (max 2MB).\n\nDon't forget to click **Save Changes** at the bottom right when you're done!"
+      },
+      "fr": {
+        "title": "Paramètres généraux (General)",
+        "description": "Dans l'onglet 'General', vous définissez les paramètres de base de la plateforme et de la facturation. Passez en revue les sections suivantes :\n\n**1. Platform :**\n- **Default Language :** Sélectionnez la langue par défaut. Celle-ci sert de langue de secours pour les e-mails du système.\n- **Currency :** Définissez votre devise par défaut (par ex. EUR). Utilisée pour les forfaits de crédits, les produits et les factures.\n\n**2. Invoice Numbering :**\n- **Invoice Prefix :** Texte placé avant le numéro de facture (par ex. 'INV-').\n- **Start Number :** Le point de départ de la numérotation de vos factures.\n- **Invoice Footer Note :** Ajoutez des conditions de paiement, des mentions légales ou un message de remerciement sur les factures.\n\n**3. Invoice Logo :**\n- Téléchargez le logo qui doit apparaître sur vos factures PDF. Formats pris en charge : PNG, JPG, SVG ou WebP (max. 2 Mo).\n\nN'oubliez pas de cliquer sur **Save Changes** en bas à droite lorsque vous avez terminé !"
+      },
+      "lu": {
+        "title": "Allgemeng Astellungen (General)",
+        "description": "Am Reiter 'General' definéiers du déi wichtegst Plattform- an Rechnungsastellungen. Gëff dës Beräicher Schrëtt fir Schrëtt duerch:\n\n**1. Platform:**\n- **Default Language:** Wielt d'Standardsituatioun aus (z.B. 'en' oder 'de'). Dëst gëtt als Fallback fir System-E-Maile benotzt.\n- **Currency:** Setz deng Standardwährung (z.B. EUR). Dëst gëllt fir Kreditpaketer, Produkter a Rechnungen.\n\n**2. Invoice Numbering:**\n- **Invoice Prefix:** En Text, deen virun der Rechnungsnummer steet (z.B. 'INV-').\n- **Start Number:** D'Startnummer fir deng Rechnungen.\n- **Invoice Footer Note:** Plaz fir Bezuelbedéngungen, rechtlech Hiweiser oder e Merci op der Rechnung.\n\n**3. Invoice Logo:**\n- Luet hei däi Logo erop, deen op den PDF-Rechnungen ugewise gëtt. Erlaabt sinn PNG, JPG, SVG oder WebP (max 2MB).\n\nVergiess net ënnen riets op **Save Changes** ze klicken, wanns du fäerdeg bass!"
+      }
+    }
+  },
+  {
+    "id": "settings_appearance",
+    "path": "/settings/appearance",
+    "image": "settings_appearance.png",
+    "translations": {
+      "de": {
+        "title": "Erscheinungsbild (Appearance)",
+        "description": "Im Bereich 'Appearance' passt du das visuelle Design deines Admin-Panels an.\n\n**1. Color Mode:**\n- Wechsle hier zwischen dem hellen (Light) und dunklen (Dark) Modus.\n\n**2. Accent Color:**\n- Wähle eine primäre Akzentfarbe für dein Interface aus. Zur Verfügung stehen Blau, Lila, Grün, Gelb, Rot und Türkis. Klicke einfach auf den entsprechenden Farbkreis.\n\nSpeichere deine Änderungen unten rechts ab, um das neue Design sofort zu aktivieren."
+      },
+      "en": {
+        "title": "Appearance Settings",
+        "description": "In the 'Appearance' section, you can customize the visual design of your admin panel.\n\n**1. Color Mode:**\n- Switch between light and dark mode.\n\n**2. Accent Color:**\n- Choose a primary accent color for your UI. Available options are Blue, Purple, Green, Yellow, Red, and Teal. Simply click on the respective color circle.\n\nSave your changes at the bottom right to apply the new design immediately."
+      },
+      "fr": {
+        "title": "Apparence (Appearance)",
+        "description": "Dans la section 'Appearance', vous pouvez personnaliser le design visuel de votre panneau d'administration.\n\n**1. Color Mode :**\n- Basculez entre le mode clair (Light) et le mode sombre (Dark).\n\n**2. Accent Color :**\n- Choisissez une couleur d'accentuation principale pour votre interface. Les options disponibles sont Bleu, Violet, Vert, Jaune, Rouge et Sarcelle. Cliquez simplement sur le cercle de couleur correspondant.\n\nEnregistrez vos modifications en bas à droite pour appliquer immédiatement le nouveau design."
+      },
+      "lu": {
+        "title": "Ausgesinn (Appearance)",
+        "description": "Am Beräich 'Appearance' pass du de visuellen Design vun dengem Admin-Panel un.\n\n**1. Color Mode:**\n- Wiessel hei tëscht dem hellen (Light) an däischteren (Dark) Modus.\n\n**2. Accent Color:**\n- Wielt eng primär Akzentfaarf fir däin Interface aus. Zur Verfügung stinn Blo, Mof, Gréng, Giel, Rout an Türkis. Klick einfach op de gewënschte Faarfkrees.\n\nSpäicher deng Ännerungen ënnen riets of, fir deen neien Design direkt z'aktivéieren."
+      }
+    }
+  },
+  {
+    "id": "settings_branding",
+    "path": "/settings/branding",
+    "image": "settings_branding.png",
+    "translations": {
+      "de": {
+        "title": "Branding & Benachrichtigungen",
+        "description": "Unter 'Branding & Notice' lädst du deine Logos und Bilder hoch und passt die E-Mail-Farben an.\n\n**1. Site Identity:**\n- **Site Name:** Gib hier den Namen deines Portals ein (z.B. TUNERPORTAL). Dieser erscheint in Browsertabs und System-Mails.\n\n**2. Brand Assets:**\n- **Logo (Light/Dark Mode):** Lade deine Logos für den hellen und dunklen Modus hoch. Wenn kein dunkles Logo vorhanden ist, wird das helle als Fallback genutzt.\n- **Favicon:** Lade das kleine Icon hoch, das im Browser-Tab angezeigt wird (max. 512KB).\n- **Auth Background Image:** Dieses Bild erscheint im Hintergrund auf der Login- und Registrierungsseite.\n\n**3. Theme & Email:**\n- **Primary Color:** Wähle die Hauptfarbe für deine ausgehenden E-Mails.\n- **Email Footer:** Konfiguriere hier mit dem Text-Editor deinen E-Mail-Footer (z.B. Copyright-Hinweise)."
+      },
+      "en": {
+        "title": "Branding & Notice",
+        "description": "Under 'Branding & Notice', upload your logos, images, and customize email styling.\n\n**1. Site Identity:**\n- **Site Name:** Enter your portal name here (e.g., TUNERPORTAL). This appears in browser tabs and system emails.\n\n**2. Brand Assets:**\n- **Logo (Light/Dark Mode):** Upload your logos for light and dark modes. If no dark logo is set, the light logo is used as a fallback.\n- **Favicon:** Upload the small icon shown in the browser tab (max 512KB).\n- **Auth Background Image:** This image appears in the background of your login and registration pages.\n\n**3. Theme & Email:**\n- **Primary Color:** Choose the primary color for your outgoing emails.\n- **Email Footer:** Use the text editor to configure your email footer (e.g., copyright notices)."
+      },
+      "fr": {
+        "title": "Marque et notifications (Branding & Notice)",
+        "description": "Sous 'Branding & Notice', téléchargez vos logos, images, et personnalisez le style des e-mails.\n\n**1. Site Identity :**\n- **Site Name :** Saisissez ici le nom de votre portail. Il apparaît dans les onglets du navigateur et les e-mails du système.\n\n**2. Brand Assets :**\n- **Logo (Light/Dark Mode) :** Téléchargez vos logos pour les modes clair et sombre.\n- **Favicon :** Téléchargez la petite icône affichée dans l'onglet du navigateur (max 512 Ko).\n- **Auth Background Image :** Cette image apparaît en arrière-plan de vos pages de connexion et d'inscription.\n\n**3. Theme & Email :**\n- **Primary Color :** Choisissez la couleur principale de vos e-mails sortants.\n- **Email Footer :** Utilisez l'éditeur de texte pour configurer le pied de page de vos e-mails (ex: mentions de droits d'auteur)."
+      },
+      "lu": {
+        "title": "Branding & Notifikatiounen",
+        "description": "Ënner 'Branding & Notice' lueds du deng Logoen a Biller erop a pass d'E-Mail-Faarwen un.\n\n**1. Site Identity:**\n- **Site Name:** Gëff hei den Numm vun dengem Portal an. Dësen erschéngt a Browsertabs an a System-E-Mailen.\n\n**2. Brand Assets:**\n- **Logo (Light/Dark Mode):** Luet deng Logoen fir den hellen an däischteren Modus erop.\n- **Favicon:** Luet dat klengt Icon erop, dat am Browser-Tab ugewise gëtt (max 512KB).\n- **Auth Background Image:** Dëst Bild erschéngt am Hannergrond op der Login- an Registréierungssäit.\n\n**3. Theme & Email:**\n- **Primary Color:** Wielt d'Haaptfaarf fir deng erausgoend E-Mailen.\n- **Email Footer:** Konfiguréier hei mam Text-Editor däin E-Mail-Footer."
+      }
+    }
+  },
+  {
+    "id": "settings_seo",
+    "path": "/settings/seo",
+    "image": "settings_seo.png",
+    "translations": {
+      "de": {
+        "title": "SEO & Sharing",
+        "description": "Optimiere hier, wie dein Portal in Suchmaschinen (Google) und beim Teilen von Links (WhatsApp, Facebook) angezeigt wird.\n\n**1. SEO Metadata:**\n- **Meta Title:** Der Titel, der oben im Browser-Tab steht. Beispiel:\n[[COPY:TunerPortal | Hochwertige Chiptuning Files]]\n- **Meta Description:** Ein kurzer Text für Suchmaschinen. Beispiel:\n[[COPY:Willkommen in unserem Tuning Portal. Registriere dich jetzt für Zugriff auf unser File-Service System!]]\n\n**2. Social Sharing (Open Graph):**\n- **OG Image:** Lade ein ansprechendes Vorschaubild (1200x630 Pixel) hoch. Dieses Bild wird angezeigt, wenn jemand den Link bei WhatsApp postet."
+      },
+      "en": {
+        "title": "SEO & Sharing",
+        "description": "Optimize how your portal appears in search engines and when links are shared.\n\n**1. SEO Metadata:**\n- **Meta Title:** The title in the browser tab. Example:\n[[COPY:TunerPortal | High Quality Chiptuning Files]]\n- **Meta Description:** A short description for search engines. Example:\n[[COPY:Welcome to our Tuning Portal. Register now to access our professional file service system!]]\n\n**2. Social Sharing (Open Graph):**\n- **OG Image:** Upload a preview image (1200x630 pixels) shown when sharing the link on social media."
+      },
+      "fr": {
+        "title": "SEO & Partage",
+        "description": "Optimisez l'apparence de votre portail dans les moteurs de recherche et lors du partage de liens.\n\n**1. Métadonnées SEO :**\n- **Titre Meta :** Le titre qui apparaît dans l'onglet. Exemple :\n[[COPY:TunerPortal | Fichiers Chiptuning de Haute Qualité]]\n- **Description Meta :** Courte description. Exemple :\n[[COPY:Bienvenue sur notre portail. Inscrivez-vous pour accéder à notre système de fichiers !]]\n\n**2. Partage Social :**\n- **Image OG :** Téléchargez une image d'aperçu pour le partage sur les réseaux sociaux."
+      },
+      "lu": {
+        "title": "SEO & Sharing",
+        "description": "Optiméier hei, wéi däi Portal a Sichmaschinnen an beim Deele vu Linken ugewise gëtt.\n\n**1. SEO Metadata:**\n- **Meta Title:** Den Titel am Browser-Tab. Beispill:\n[[COPY:TunerPortal | Héichwäerteg Chiptuning Files]]\n- **Meta Description:** Eng kuerz Beschreiwung. Beispill:\n[[COPY:Wëllkomm an eisem Tuning Portal. Registréier dech elo fir eisen File-Service!]]\n\n**2. Social Sharing:**\n- **OG Image:** Luet e Virschaubild erop fir WhatsApp a Facebook."
+      }
+    }
+  },
+  {
+    "id": "settings_smtp",
+    "path": "/settings/smtp",
+    "image": "settings_smtp.png",
+    "translations": {
+      "de": {
+        "title": "SMTP / Email",
+        "description": "Hier konfigurierst du den Postausgangsserver (SMTP), damit das System Kunden-E-Mails, Passwort-Resets und Benachrichtigungen in deinem Namen verschicken kann.\n\n**1. Status:**\n- Schalte den Toggle oben rechts auf **On**, um den SMTP-Versand zu aktivieren.\n\n**2. Zugangsdaten:**\n- **SMTP Host & Port:** Trage hier die Daten deines E-Mail-Providers ein (oft Port 587 für TLS oder 465 für SSL).\n- **Username & Password:** Logindaten deines E-Mail-Postfachs.\n- **From Email Address & Sender Name:** Lege fest, von welcher E-Mail (z.B. noreply@deinefirma.de) und welchem Namen (z.B. Deine Firma) die Mails kommen sollen.\n- Klicke danach auf **Update Credentials**.\n\n**3. Send Test Email:**\n- Trage ganz unten eine Empfänger-Adresse ein und klicke auf **Send Test**, um zu prüfen, ob alles klappt!"
+      },
+      "en": {
+        "title": "SMTP / Email",
+        "description": "Configure your outgoing mail server (SMTP) here so the system can send customer emails, password resets, and notifications on your behalf.\n\n**1. Status:**\n- Switch the toggle at the top right to **On** to enable SMTP sending.\n\n**2. Credentials:**\n- **SMTP Host & Port:** Enter your email provider's data here (often port 587 for TLS or 465 for SSL).\n- **Username & Password:** Login details for your email account.\n- **From Email Address & Sender Name:** Specify the sender email (e.g., noreply@yourcompany.com) and name (e.g., Your Company).\n- Click on **Update Credentials** afterwards.\n\n**3. Send Test Email:**\n- Enter a recipient address at the very bottom and click on **Send Test** to verify your setup!"
+      },
+      "fr": {
+        "title": "SMTP / Email",
+        "description": "Configurez ici votre serveur de messagerie sortant (SMTP) pour que le système puisse envoyer des e-mails en votre nom.\n\n**1. Statut :**\n- Activez le bouton en haut à droite (**On**) pour activer l'envoi SMTP.\n\n**2. Identifiants :**\n- **SMTP Host & Port :** Saisissez les données de votre fournisseur d'e-mail (souvent le port 587 ou 465).\n- **Nom d'utilisateur et mot de passe :** Vos identifiants de messagerie.\n- **Adresse et nom d'expédition :** L'adresse e-mail et le nom visibles par vos clients.\n- Cliquez ensuite sur **Update Credentials**.\n\n**3. Send Test Email :**\n- Saisissez une adresse de destinataire en bas et cliquez sur **Send Test** pour vérifier !"
+      },
+      "lu": {
+        "title": "SMTP / Email",
+        "description": "Hei konfiguréiers du de Postausgangsserver (SMTP), fir datt de System E-Mailen, Passwuert-Resets an Notifikatiounen an dengem Numm verschécken kann.\n\n**1. Status:**\n- Schalt den Toggle uewe riets op **On**, fir den SMTP-Versand z'aktivéieren.\n\n**2. Donnéeën:**\n- **SMTP Host & Port:** Dro hei d'Daten vun dengem E-Mail-Ubidder an (dacks Port 587 oder 465).\n- **Username & Password:** Logindaten vun dengem Postfach.\n- **From Email Address & Sender Name:** Leet fest, vu wéi enger E-Mail a wéi engem Numm d'Mailë komme sollen.\n- Klick duerno op **Update Credentials**.\n\n**3. Send Test Email:**\n- Dro ganz ënnen eng Empfänger-Adress an a klick op **Send Test**, fir ze testen, ob alles klappt!"
+      }
+    }
+  },
+  {
+    "id": "settings_billing",
+    "path": "/settings/billing",
+    "image": "settings_billing.png",
+    "translations": {
+      "de": {
+        "title": "Billing Profile",
+        "description": "Unter 'Billing Profile' hinterlegst du die rechtlichen Daten deines Unternehmens. Diese werden auf Rechnungen und Dokumenten angezeigt.\n\n**1. Company Details (Unternehmensdaten):**\n- **Company Name & VAT Number:** Trage deinen Firmennamen und deine Umsatzsteuer-ID ein (wichtig für B2B-Rechnungen).\n- **Kontakt & Adresse:** Ergänze deine primäre Rechnungs-E-Mail, Telefonnummer sowie die vollständige Anschrift (Straße, Stadt, Postleitzahl, Land).\n\n**2. Contact Person (Ansprechpartner):**\n- Hier definierst du die konkrete Kontaktperson, die auf den Rechnungen ausgewiesen wird (Vorname, Nachname, direkte E-Mail, Telefon und ggf. eine abweichende Adresse).\n\nKlicke unten rechts auf **Save Changes**, um deine Daten zu sichern."
+      },
+      "en": {
+        "title": "Billing Profile",
+        "description": "Under 'Billing Profile', you define your company's legal details. These will be displayed on invoices and documents.\n\n**1. Company Details:**\n- **Company Name & VAT Number:** Enter your company name and your VAT ID (important for B2B invoices).\n- **Contact & Address:** Add your primary billing email, phone number, and complete address (Street, City, Postal Code, Country).\n\n**2. Contact Person:**\n- Here you define the specific contact person shown on invoices (First Name, Last Name, direct email, phone, and a different address if applicable).\n\nClick **Save Changes** at the bottom right to secure your data."
+      },
+      "fr": {
+        "title": "Profil de facturation",
+        "description": "Sous 'Billing Profile', vous définissez les détails légaux de votre entreprise. Ceux-ci apparaîtront sur vos factures.\n\n**1. Détails de l'entreprise :**\n- **Company Name & VAT Number :** Saisissez le nom de votre entreprise et votre numéro de TVA.\n- **Contact & Adresse :** Ajoutez votre e-mail de facturation, numéro de téléphone et adresse complète.\n\n**2. Personne de contact :**\n- Définissez ici le contact spécifique affiché sur les factures (Prénom, Nom, e-mail direct, téléphone et adresse).\n\nCliquez sur **Save Changes** en bas à droite pour enregistrer."
+      },
+      "lu": {
+        "title": "Billing Profile",
+        "description": "Ënner 'Billing Profile' hannerlees du d'rechtlech Daten vun denger Firma. Dës ginn op Rechnungen an Dokumenter ugewise.\n\n**1. Company Details (Firmendaten):**\n- **Company Name & VAT Number:** Dro däi Firmennumm an deng TVA-Nummer an.\n- **Kontakt & Adress:** Ergänz deng primär Rechnungs-E-Mail, Telefonsnummer an déi komplett Adress.\n\n**2. Contact Person (Uspriechpartner):**\n- Hei definéiers du déi spezifesch Kontaktpersoun, déi op de Rechnungen ugewise gëtt (Virnumm, Nonumm, E-Mail, Telefon an Adress).\n\nKlick ënnen riets op **Save Changes**, fir ze späicheren."
+      }
+    }
+  },
+  {
+    "id": "settings_shipping",
+    "path": "/settings/shipping",
+    "image": "settings_shipping.png",
+    "translations": {
+      "de": {
+        "title": "Shipping Rates (Versandkosten)",
+        "description": "Lege hier pauschale Versandkosten pro Land fest. Die Versandkosten werden im Warenkorb deiner Kunden live aktualisiert.\n\n**1. Rate hinzufügen:**\n- Wähle ein Land aus dem Dropdown und trage die Kosten ein (z.B. 5.00).\n- Klicke auf **+ Save Rate**.\n\n**2. Fallback Rate (Wichtig!):**\n- Klicke auf das Häkchen **Default fallback (any other country)** und speichere einen Preis.\n- Ohne diesen Fallback können Kunden aus Ländern, die du nicht explizit eingetragen hast, keine Bestellung abschließen!"
+      },
+      "en": {
+        "title": "Shipping Rates",
+        "description": "Configure flat shipping costs by destination country. Shipping costs update live in the customer's cart.\n\n**1. Add Rate:**\n- Select a country from the dropdown and enter the cost (e.g., 5.00).\n- Click on **+ Save Rate**.\n\n**2. Fallback Rate (Important!):**\n- Check the box **Default fallback (any other country)** and save a price.\n- Without a fallback row, customers in unpriced countries cannot complete the order!"
+      },
+      "fr": {
+        "title": "Frais d'expédition",
+        "description": "Configurez des frais d'expédition par pays de destination. Les frais sont mis à jour en direct dans le panier.\n\n**1. Ajouter un tarif :**\n- Sélectionnez un pays et entrez le coût.\n- Cliquez sur **+ Save Rate**.\n\n**2. Tarif par défaut (Important !) :**\n- Cochez **Default fallback (any other country)** et enregistrez un prix par défaut."
+      },
+      "lu": {
+        "title": "Shipping Rates",
+        "description": "Lees hei d'Versandkäschten pro Land fest. Dës ginn am Wuerekuerf live aktualiséiert.\n\n**1. Rate dobäisetzen:**\n- Wielt e Land a gëff d'Käschten an.\n- Klick op **+ Save Rate**.\n\n**2. Fallback Rate (Wichteg!):**\n- Klick op **Default fallback (any other country)** a späicher e Präis, fir datt jiddereen bestellen kann!"
+      }
+    }
+  },
+  {
+    "id": "settings_platform",
+    "path": "/settings/platform",
+    "image": "settings_platform.png",
+    "translations": {
+      "de": {
+        "title": "Platform Controls",
+        "description": "Hier kannst du zentrale Systemfunktionen per Schalter aktivieren oder deaktivieren.\n\n**1. Maintenance Mode:**\n- Setze diesen Schalter auf **On**, um eine Wartungsseite für alle Besucher anzuzeigen. Das ist praktisch bei großen Updates.\n\n**2. Welcome Email:**\n- Wenn dieser Schalter aktiv ist, erhalten neue Kunden nach der Registrierung automatisch eine freundliche Begrüßungsmail vom System.\n\nVergiss nicht, auf **Save Changes** zu klicken, um die Schalter zu speichern."
+      },
+      "en": {
+        "title": "Platform Controls",
+        "description": "Enable or disable core platform features with these toggle switches.\n\n**1. Maintenance Mode:**\n- Switch this to **On** to show a maintenance page to all visitors. Useful during major updates.\n\n**2. Welcome Email:**\n- Send a welcome email automatically after customer registration when this switch is active.\n\nDon't forget to click **Save Changes** to apply the controls."
+      },
+      "fr": {
+        "title": "Contrôles de la plateforme",
+        "description": "Activez ou désactivez les fonctionnalités principales du système.\n\n**1. Maintenance Mode :**\n- Activez-le pour afficher une page de maintenance à tous les visiteurs.\n\n**2. Welcome Email :**\n- Envoyez un e-mail de bienvenue automatique après l'inscription d'un client.\n\nCliquez sur **Save Changes** pour enregistrer."
+      },
+      "lu": {
+        "title": "Platform Controls",
+        "description": "Hei kanns du zentral Systemfunktiounen per Schalter un- oder ausschalten.\n\n**1. Maintenance Mode:**\n- Schalt dëst op **On**, fir eng Wartungssäit fir all Visiteuren ze weisen.\n\n**2. Welcome Email:**\n- Wann dëse Schalter aktiv ass, kréien nei Clienten no der Registréierung automatesch eng E-Mail.\n\nVergiess net op **Save Changes** ze klicken."
+      }
+    }
+  },
+  {
+    "id": "settings_schedule",
+    "path": "/settings/schedule",
+    "image": "settings_schedule.png",
+    "translations": {
+      "de": {
+        "title": "Schedule (Öffnungszeiten)",
+        "description": "Definiere hier deine Geschäftszeiten, damit deine Kunden wissen, wann du erreichbar bist.\n\n**1. Timezone:**\n- Wähle deine Zeitzone (z.B. Europe/Berlin) aus dem Dropdown.\n\n**2. Opening Hours:**\n- Lege für jeden Wochentag (Monday bis Sunday) die **From** und **To** Uhrzeiten (z.B. 09:00 bis 18:00) fest.\n- Wenn du an einem bestimmten Tag komplett geschlossen hast (z.B. Wochenende), aktiviere einfach den blauen **Closed** Schalter rechts daneben.\n- Klicke unten auf **Save Schedule**."
+      },
+      "en": {
+        "title": "Schedule",
+        "description": "Configure your business hours so customers know when you are available.\n\n**1. Timezone:**\n- Set the timezone for your business (e.g., Europe/Berlin).\n\n**2. Opening Hours:**\n- Set the **From** and **To** times for each day of the week.\n- If you are closed on a specific day (e.g., the weekend), just toggle the **Closed** switch on the right.\n- Click on **Save Schedule** at the bottom."
+      },
+      "fr": {
+        "title": "Horaires",
+        "description": "Configurez vos heures d'ouverture pour chaque jour de la semaine.\n\n**1. Timezone :**\n- Choisissez votre fuseau horaire.\n\n**2. Opening Hours :**\n- Définissez les heures d'ouverture et de fermeture pour chaque jour.\n- Activez le bouton **Closed** pour les jours de fermeture (ex: week-end).\n- Cliquez sur **Save Schedule**."
+      },
+      "lu": {
+        "title": "Schedule (Ëffnungszäiten)",
+        "description": "Definéier hei deng Geschäfts- a Büro-Zäiten.\n\n**1. Timezone:**\n- Wielt deng Zäitzon aus.\n\n**2. Opening Hours:**\n- Lees fir all Dag d'Zäiten fest (z.B. 09:00 bis 18:00).\n- Wanns du zou hues (z.B. de Weekend), aktivéier de **Closed** Schalter.\n- Klick ënnen op **Save Schedule**."
+      }
+    }
+  },
+  {
+    "id": "settings_device",
+    "path": "/settings/device",
+    "image": "settings_device.png",
+    "translations": {
+      "de": {
+        "title": "Device Credentials (Master/Slave Tools)",
+        "description": "**(Hinweis: Dies ist kein Muss, nur wenn du eigene Slaves einbinden möchtest!)**\n\nHier hinterlegst du die API-Zugänge deiner Flasher-Tools (AlienTech, AutoTuner, AutoFlasher, Flex, BFlash), damit das System verschlüsselte Slave-Dateien verarbeiten kann.\n\n**1. Tool Zugangsdaten:**\n- Klicke auf das **Stift-Icon** bei einem Tool (z.B. AutoTuner), um das Popup zu öffnen.\n- Trage deinen jeweiligen **API Key** und z.B. deine **Tuner ID** ein und klicke auf **Save Credentials**.\n\n**2. Tool aktivieren:**\n- Schalte nun den Schalter in der Tool-Karte auf **On**.\n- Die Karte leuchtet auf und zeigt 'Credentials configured' sowie das grüne 'Active' Badge."
+      },
+      "en": {
+        "title": "Device Credentials",
+        "description": "**(Note: This is optional, only needed if you want to integrate your own slaves!)**\n\nConfigure slave device credentials for ECU read/write operations (AlienTech, AutoTuner, AutoFlasher, Flex, BFlash).\n\n**1. Tool Credentials:**\n- Click the **pencil icon** on a tool card (e.g., AutoTuner) to open the modal.\n- Enter your **API Key** and your **Tuner ID**, then click **Save Credentials**.\n\n**2. Activate Tool:**\n- Toggle the switch on the tool card to **On**.\n- The card will display 'Credentials configured' and a green 'Active' badge."
+      },
+      "fr": {
+        "title": "Identifiants des appareils",
+        "description": "**(Remarque : Ceci est facultatif, uniquement si vous souhaitez intégrer vos propres esclaves !)**\n\nConfigurez les identifiants de vos outils esclaves (AlienTech, AutoTuner, AutoFlasher, Flex, BFlash).\n\n**1. Identifiants de l'outil :**\n- Cliquez sur l'icône de **crayon** sur une carte pour ouvrir le popup.\n- Saisissez votre **API Key** et votre **Tuner ID**, puis enregistrez.\n\n**2. Activer l'outil :**\n- Basculez le commutateur de la carte sur **On** pour activer l'outil."
+      },
+      "lu": {
+        "title": "Device Credentials",
+        "description": "**(Hiwäis: Dëst ass optional, nëmme wanns du deng eege Slaves abanne wëlls!)**\n\nHei hannerlees du d'API-Zougäng vun denge Flasher-Tools (AlienTech, AutoTuner, AutoFlasher, Flex, BFlash).\n\n**1. Tool Zouganksdaten:**\n- Klick op d'**Stëft-Icon** beim Tool, fir de Popup opzemaachen.\n- Dro däin **API Key** an deng **Tuner ID** an a späicher d'Donnéeën.\n\n**2. Tool aktivéieren:**\n- Schalt de Schalter op der Kaart op **On**."
+      }
+    }
+  },
+  {
+    "id": "settings_evc",
+    "path": "/settings/evc",
+    "image": "settings_evc.png",
+    "translations": {
+      "de": {
+        "title": "EVC Credentials",
+        "description": "Wenn du offizieller EVC Reseller bist, kannst du hier die direkte API-Anbindung zu evc.de für das automatische Credit Management herstellen.\n\n**1. Zugangsdaten konfigurieren:**\n- Trage deine **API ID** (Achtung: Das ist nicht deine Kundennummer, sondern die spezielle API ID), den **Username** und das **Password** deines EVC-Reseller-Accounts ein.\n- Klicke auf **Update Credentials**.\n\n**2. EVC Anbindung aktivieren:**\n- Schalte den Toggle ganz oben rechts auf **On**, damit das System als 'Active' markiert wird."
+      },
+      "en": {
+        "title": "EVC Credentials",
+        "description": "If you are an official EVC Reseller, you can set up the direct API connection to evc.de for automatic credit management here.\n\n**1. Configure Credentials:**\n- Enter your **API ID**, **Username**, and **Password** for your EVC reseller account.\n- Click on **Update Credentials**.\n\n**2. Enable Connection:**\n- Switch the toggle at the top right to **On** to mark the integration as 'Active'."
+      },
+      "fr": {
+        "title": "Identifiants EVC",
+        "description": "Si vous êtes un revendeur officiel EVC, vous pouvez configurer la connexion API directe à evc.de ici.\n\n**1. Configurer les identifiants :**\n- Saisissez votre **API ID**, **Username** et **Password** EVC.\n- Cliquez sur **Update Credentials**.\n\n**2. Activer la connexion :**\n- Basculez le bouton en haut à droite sur **On**."
+      },
+      "lu": {
+        "title": "EVC Credentials",
+        "description": "Wanns du en offiziellen EVC Reseller bass, kanns du hei déi direkt API-Verbindung zu evc.de hierstellen.\n\n**1. Donnéeën konfiguréieren:**\n- Dro deng **API ID**, den **Username** an d'**Password** an.\n- Klick op **Update Credentials**.\n\n**2. EVC aktivéieren:**\n- Schalt den Toggle uewe riets op **On**, fir de System als 'Active' ze markéieren."
+      }
+    }
+  },
+  {
+    "id": "settings_payment",
+    "path": "/settings/payment",
+    "image": "settings_payment.png",
+    "translations": {
+      "de": {
+        "title": "Payment Credentials (Zahlungsanbieter)",
+        "description": "Richte hier deine Zahlungsanbieter ein, damit deine Kunden sicher Credits bezahlen können. Dir stehen Stripe, PayPal und Mollie zur Verfügung.\n\n**1. PayPal einrichten:**\n- Gehe auf **[developer.paypal.com](https://developer.paypal.com)**, logge dich ein und klicke auf 'Apps & Credentials'.\n- Erstelle eine neue App ('Create App').\n- Kopiere von dort die **Client ID** und das **Client Secret**.\n- **Wichtig:** Stelle den Modus auf der PayPal-Seite von 'Sandbox' auf 'Live', sonst erhältst du kein echtes Geld!\n- Trage die Keys hier im Portal unter dem PayPal Stift-Icon ein und klicke auf 'Update Credentials'.\n\n**2. Stripe einrichten (Kreditkarte/Apple Pay):**\n- Gehe auf **[dashboard.stripe.com](https://dashboard.stripe.com)** und erstelle einen Account.\n- Klicke oben rechts auf **Entwickler** (Developers) und dann auf **API-Schlüssel** (API keys).\n- Kopiere dort den **Publishable Key** (Öffentlicher Schlüssel) und den **Secret Key** (Geheimschlüssel).\n- Lege zusätzlich einen **Webhook** an (unter 'Webhooks') und kopiere das **Webhook Secret**.\n- Trage alle 3 Werte hier im Portal unter dem Stripe Stift-Icon ein.\n\n**3. Zahlungsmethode aktivieren:**\n- Sobald die Daten hinterlegt sind, schalte den Toggle der jeweiligen Karte auf **On**. Das Badge wechselt auf das grüne 'Active'."
+      },
+      "en": {
+        "title": "Payment Credentials",
+        "description": "Configure your payment gateway credentials so customers can securely purchase credits. You can choose from Stripe, PayPal, and Mollie.\n\n**1. Setup PayPal:**\n- Go to **[developer.paypal.com](https://developer.paypal.com)**, log in, and click 'Apps & Credentials'.\n- Create a new App.\n- Copy the **Client ID** and **Client Secret**.\n- **Important:** Switch the mode from 'Sandbox' to 'Live' on PayPal to receive real money!\n- Enter the keys in your portal using the PayPal pencil icon.\n\n**2. Setup Stripe (Credit Card/Apple Pay):**\n- Go to **[dashboard.stripe.com](https://dashboard.stripe.com)** and log in.\n- Click on **Developers** -> **API keys** in the top right.\n- Copy the **Publishable Key** and the **Secret Key**.\n- Set up a new endpoint under 'Webhooks' and copy the **Webhook Secret**.\n- Enter all 3 values in your portal using the Stripe pencil icon.\n\n**3. Enable Payment Method:**\n- Once configured, toggle the switch on the card to **On**. The badge will change to a green 'Active'."
+      },
+      "fr": {
+        "title": "Identifiants de paiement",
+        "description": "Configurez vos passerelles de paiement (Stripe, PayPal, Mollie).\n\n**1. Configurer PayPal :**\n- Allez sur **[developer.paypal.com](https://developer.paypal.com)**, créez une application sous 'Apps & Credentials'.\n- Copiez le **Client ID** et **Client Secret**. Mettez le mode sur 'Live'.\n- Entrez les clés via l'icône de crayon.\n\n**2. Configurer Stripe :**\n- Allez sur **[dashboard.stripe.com](https://dashboard.stripe.com)**, section 'Développeurs' -> 'Clés API'.\n- Copiez la **Clé Publique**, la **Clé Secrète** et le **Secret Webhook**.\n- Entrez les valeurs dans le portail.\n\n**3. Activer le paiement :**\n- Basculez le commutateur sur **On**."
+      },
+      "lu": {
+        "title": "Payment Credentials",
+        "description": "Riicht hei deng Bezuelanbidder an (Stripe, PayPal, Mollie).\n\n**1. PayPal ariichten:**\n- Géi op **[developer.paypal.com](https://developer.paypal.com)**, erstell eng App a kopéier d'**Client ID** an d'**Client Secret**.\n- Wichteg: Schalt op 'Live' ëm!\n- Dro d'Keys iwwer d'Stëft-Icon an.\n\n**2. Stripe ariichten:**\n- Géi op **[dashboard.stripe.com](https://dashboard.stripe.com)**, ënner 'Developers' -> 'API keys'.\n- Kopéier de **Publishable Key**, de **Secret Key** an d'**Webhook Secret**.\n- Dro se am Portal an.\n\n**3. Aktivéieren:**\n- Schalt den Toggle op der Kaart op **On**."
+      }
+    }
+  },
+  {
+    "id": "customer_packages",
+    "path": "/customers/packages",
+    "image": "customer-packages.png",
+    "translations": {
+      "de": {
+        "title": "Customer Packages (Kunden-Pakete)",
+        "description": "In diesem Bereich bestimmst du deine Preise! Hier kannst du einzelne Credits oder ganze Credit-Pakete anlegen.\n\n**1. Pakete erstellen:**\n- Du kannst individuelle Pakete für **Master-User** oder **Slave-User** einzeln erstellen.\n- Definiere die Anzahl der Credits und den Preis (z.B. 100 Credits für 49,99€).\n\n**2. Flexibilität:**\n- Durch dieses System entscheidest du exakt, zu welchen Konditionen deine Kunden bei dir Tuning-Files einkaufen können. Deine Kunden sehen diese Pakete dann in ihrem Portal im Shop."
+      },
+      "en": {
+        "title": "Customer Packages",
+        "description": "In this section, you set your prices! Here you can create single credits or entire credit packages.\n\n**1. Create Packages:**\n- You can create individual packages for **Master Users** or **Slave Users**.\n- Define the number of credits and the price (e.g., 100 credits for €49.99).\n\n**2. Flexibility:**\n- Through this system, you decide exactly at what conditions your customers can purchase tuning files from you. Your customers will then see these packages in their portal shop."
+      },
+      "fr": {
+        "title": "Forfaits clients (Customer Packages)",
+        "description": "Dans cette section, vous fixez vos prix ! Vous pouvez y créer des crédits individuels ou des forfaits de crédits entiers.\n\n**1. Créer des forfaits :**\n- Vous pouvez créer des forfaits individuels pour les **Utilisateurs Master** ou les **Utilisateurs Slave**.\n- Définissez le nombre de crédits et le prix (par ex. 100 crédits pour 49,99 €).\n\n**2. Flexibilité :**\n- Grâce à ce système, vous décidez exactement à quelles conditions vos clients peuvent acheter des fichiers de tuning chez vous."
+      },
+      "lu": {
+        "title": "Customer Packages",
+        "description": "An dësem Beräich bestëmms du deng Präisser! Hei kanns du eenzel Credits oder ganz Credit-Paketer uleeën.\n\n**1. Paketer erstellen:**\n- Du kanns individuell Paketer fir **Master-User** oder **Slave-User** erstellen.\n- Definéier d'Zuel vun de Credits an de Präis.\n\n**2. Flexibilitéit:**\n- Duusch dëst System entscheeds du exakt, zu wéi enge Konditiounen deng Clienten bei dir kafen kënnen."
+      }
+    }
+  },
+  {
+    "id": "pricing_category_based",
+    "path": "/customers/groups",
+    "image": "pricing_categorybased.png",
+    "translations": {
+      "de": {
+        "title": "Pricing: Category Based (14a)",
+        "description": "Hier legst du fest, wie viele **Credits** deine Kunden für Tuning-Files bezahlen müssen, basierend auf Kategorien.\n\n**1. Category Based:**\n- In diesem Modus definierst du Preise für übergeordnete Kategorien (Tuning, Deactivation, Miscle). Wählt ein Kunde mehrere Lösungen aus derselben Kategorie, wird nur einmal der Kategorie-Preis berechnet.\n\n**2. WICHTIG: Credits vs. Euro!**\n- Du trägst hier ausschließlich **Credits** ein, keine Euro!\n- **Rechenbeispiel:** Wenn du zuvor bei den 'Customer Packages' definiert hast, dass 1 Credit = 5 Euro kostet, und du hier '3' einträgst, zahlt der Kunde 15 Euro.\n- **MwSt-Hinweis:** Alle Beträge (Credits/Preise) hier sind immer **ohne MwSt** (Netto)!"
+      },
+      "en": {
+        "title": "Pricing: Category Based (14a)",
+        "description": "Here you configure how many **Credits** your customers pay for tuning files, based on categories.\n\n**1. Category Based:**\n- This mode groups all tuning solutions into categories (Tuning, Deactivation, Miscle). If a customer orders multiple solutions within the same category, they are charged as one single file.\n\n**2. IMPORTANT: Credits vs. Euro!**\n- You only enter **Credits** here!\n- **Example:** If you configured 1 Credit = 5 Euro in your Customer Packages, entering '3' here means the customer pays 15 Euro.\n- **VAT Note:** All credit prices here are always calculated **without VAT** (Netto)!"
+      },
+      "fr": {
+        "title": "Tarification par catégorie (14a)",
+        "description": "Vous configurez ici le nombre de **Crédits** que vos clients paient, en fonction des catégories.\n\n**1. Category Based :**\n- Ce mode regroupe les solutions en catégories. Si un client commande plusieurs solutions dans la même catégorie, elles sont facturées comme un seul fichier.\n\n**2. IMPORTANT : Crédits vs Euro !**\n- Vous ne saisissez ici que des **Crédits** !\n- **Exemple :** Si vous avez configuré 1 Crédit = 5 Euros dans vos forfaits clients, saisir '3' ici signifie que le client paie 15 Euros.\n- **TVA :** Tous les prix en crédits ici sont toujours calculés **sans TVA** (Net) !"
+      },
+      "lu": {
+        "title": "Pricing: Category Based (14a)",
+        "description": "Hei lees du fest, wéi vill **Credits** deng Clienten fir Tuning-Files bezuelen, baséierend op Kategorien.\n\n**1. Category Based:**\n- An dësem Modus definéiers du Präisser fir d'Kategorien. Wielt e Client e puer Léisungen aus der selwechter Kategorie, gëtt nëmmen eemol de Kategorie-Präis berechent.\n\n**2. WICHTEG: Credits vs. Euro!**\n- Du dréis hei exklusiv **Credits** an, keng Euro!\n- **Beispill:** Wanns du bei den Paketen definéiert hues, datt 1 Credit = 5 Euro kascht, an du hei '3' andréis, bezuelt de Client 15 Euro.\n- **TVA:** All Präisser sinn ëmmer **ouni TVA** (Netto)!"
+      }
+    },
+    "stepNumber": "14a"
+  },
+  {
+    "id": "pricing_solution_based",
+    "path": "/customers/groups",
+    "image": "pricing_solutionbased.png",
+    "translations": {
+      "de": {
+        "title": "Pricing: Solution Based (14b)",
+        "description": "Hier konfigurierst du die Kosten basierend auf den einzelnen, spezifischen Lösungen.\n\n**1. Solution Based:**\n- In diesem Modus kannst du für jede einzelne Option (z.B. VMAX, Pop & Bang, Stage 1) einen exakten Credit-Wert festlegen.\n- Wählt ein Kunde mehrere Lösungen aus, werden die Credits einfach einzeln zusammengerechnet.\n\n**2. Auch hier gilt (Credits & MwSt):**\n- Es werden nur **Credits** eingetragen. 3 Credits = 15 Euro (sofern dein Paketpreis 5€/Credit beträgt).\n- Alle hier angegebenen Werte sind **ohne MwSt** (Netto) zu verstehen!"
+      },
+      "en": {
+        "title": "Pricing: Solution Based (14b)",
+        "description": "Here you configure credit costs based on individual solutions.\n\n**1. Solution Based:**\n- In this mode, you can assign a precise Credit cost to every single solution (e.g., VMAX, Pop & Bang, Stage 1).\n- If a customer selects multiple solutions, the costs are added together individually.\n\n**2. Remember the Credit Value:**\n- Just like before, these values are in **Credits**, not Euros! 3 Credits = 15 Euro (if your package is set to 5€/Credit).\n- All prices are **without VAT** (Netto)!"
+      },
+      "fr": {
+        "title": "Tarification par solution (14b)",
+        "description": "Vous configurez ici les coûts en crédits basés sur des solutions individuelles.\n\n**1. Solution Based :**\n- Dans ce mode, vous pouvez attribuer un coût exact en crédits à chaque solution (par ex. VMAX, Pop & Bang, Stage 1).\n- Si un client sélectionne plusieurs solutions, les coûts s'additionnent.\n\n**2. N'oubliez pas (Crédits et TVA) :**\n- Saisissez uniquement des **Crédits**. 3 Crédits = 15 Euros (si votre forfait est à 5€/Crédit).\n- Tous les prix sont **sans TVA** (Net) !"
+      },
+      "lu": {
+        "title": "Pricing: Solution Based (14b)",
+        "description": "Hei konfiguréiers du d'Käschten baséierend op den eenzelen, spezifesche Léisungen.\n\n**1. Solution Based:**\n- An dësem Modus kanns du fir all eenzel Optioun (z.B. VMAX, Pop & Bang, Stage 1) en exakte Credit-Wäert festleeën.\n- Wielt de Client e puer Léisungen, ginn d'Credits einfach zesummegerechent.\n\n**2. Och hei gëllt (Credits & TVA):**\n- Et ginn nëmmen **Credits** agedroen. 3 Credits = 15 Euro (wa däi Pak 5€/Credit kascht).\n- All Präisser sinn **ouni TVA** (Netto)!"
+      }
+    },
+    "stepNumber": "14b"
+  },
+  {
+    "id": "pricing_overrides",
+    "stepNumber": "15",
+    "path": "/pricing/overrides",
+    "image": "pricing_overrides.png",
+    "translations": {
+      "de": {
+        "title": "Price Overwrites (15)",
+        "description": "Hier kannst du smarte Regeln für Lösungskombinationen erstellen.\n\n**1. Kombinationen anlegen:**\n- Wenn ein Kunde bestimmte Lösungen zusammen in den Warenkorb legt (z.B. Stage 1 Tuning + DPF Deactivation), greifen hier definierte Sonderpreise.\n\n**2. Rabatte oder Kostenlos:**\n- Du kannst so zum Beispiel einstellen, dass eine zusätzliche Deaktivierung günstiger oder sogar komplett kostenlos (0 Credits) ist, sobald der Kunde auch ein Tuning kauft."
+      },
+      "en": {
+        "title": "Price Overwrites (15)",
+        "description": "Here you can create smart rules for solution combinations.\n\n**1. Create Combinations:**\n- If a customer adds specific solutions together in their cart (e.g., Stage 1 Tuning + DPF Deactivation), the special prices defined here will apply.\n\n**2. Discounts or Free of Charge:**\n- For example, you can set it so that an additional deactivation is cheaper or completely free (0 Credits) as soon as the customer also buys a tuning."
+      },
+      "fr": {
+        "title": "Remplacements de prix (15)",
+        "description": "Vous pouvez créer ici des règles intelligentes pour les combinaisons de solutions.\n\n**1. Créer des combinaisons :**\n- Si un client ajoute des solutions spécifiques ensemble (par ex., Stage 1 + Désactivation DPF), les prix spéciaux définis ici s'appliqueront.\n\n**2. Réductions ou Gratuit :**\n- Par exemple, vous pouvez configurer une désactivation supplémentaire pour qu'elle soit moins chère ou totalement gratuite (0 Crédit) dès que le client achète également un tuning."
+      },
+      "lu": {
+        "title": "Price Overwrites (15)",
+        "description": "Hei kanns du intelligent Reegele fir Léisungskombinatiounen erstellen.\n\n**1. Kombinatiounen uleeën:**\n- Wann e Client bestëmmte Léisungen zesummen an de Wuerekuerf leet (z.B. Stage 1 + DPF Deactivation), gräifen déi hei definéiert Sonderpräisser.\n\n**2. Rabatter oder Gratis:**\n- Du kanns esou zum Beispill astellen, datt eng Deaktivéierung méi bëlleg oder ganz gratis (0 Credits) gëtt, soubal de Client och e Tuning kaaft."
+      }
+    }
+  },
+  {
+    "id": "workflow_settings",
+    "stepNumber": "16",
+    "path": "/file-service",
+    "image": "workflow.png",
+    "translations": {
+      "de": {
+        "title": "Workflow Settings (16)",
+        "description": "Wenn du oben rechts auf den grünen **Workflow**-Button klickst, öffnen sich die Automatisierungs-Regeln.\n\n**1. Auto-Managed:**\n- Wenn aktiviert, werden Tuning-Files von unserem System für dich bearbeitet. **Achtung:** Hierbei gelten andere Einkaufspreise für dich!\n\n**2. Use Platform DTC:**\n- Unser eigenes DTC-Modul ist integriert. Deine Kunden können automatisiert DTCs entfernen. Was der Kunde bezahlt, ist dir überlassen. An uns zahlst du als Admin lediglich 0,1 Credits (50 Cent) pro File.\n\n**3. Use Platform CVN:**\n- Wie beim DTC läuft auch dies komplett automatisiert. Die CVN-Korrektur kostet dich als Admin 1 Credit (5 Euro) pro File.\n\n**4. WinOLS & LUA (Interceptor):**\n- Hier hast du die Möglichkeit, LUA zu integrieren, um deine Plattform damit zu befüllen. Lädt ein User eine Datei hoch und deine eigene AI hat noch keine Lösung parat, läuft es über LUA. Selbst wenn der User nur Stage 1 anfragt und LUA parallel auch DPF, EGR, AdBlue und Stage 2 machen kann, wird all dies sofort in die Automatik eingepflegt! Den dazugehörigen Bot kannst du dir direkt dort herunterladen."
+      },
+      "en": {
+        "title": "Workflow Settings (16)",
+        "description": "Clicking the green **Workflow** button in the top right opens your automation rules.\n\n**1. Auto-Managed:**\n- If enabled, tuning files will be processed by our system on your behalf. **Attention:** Different purchasing prices apply here!\n\n**2. Use Platform DTC:**\n- Our integrated DTC module. Your customers can do automated DTC removal. You decide what the customer pays. As an admin, you only pay us 0.1 credits (50 Cents) per file.\n\n**3. Use Platform CVN:**\n- Fully automated just like DTC. CVN correction costs you as the admin 1 credit (5 Euros) per file.\n\n**4. WinOLS & LUA (Interceptor):**\n- Integrate your own WinOLS via LUA to automatically populate your platform. If a user uploads a file and your own AI doesn't have a solution yet, it runs through LUA. Even if the user only requests Stage 1, and your LUA script can also compute DPF, EGR, AdBlue, and Stage 2, all these are instantly populated into your automation! You can download the required bot right there."
+      },
+      "fr": {
+        "title": "Paramètres de flux de travail (16)",
+        "description": "En cliquant sur le bouton vert **Workflow** en haut à droite, vous ouvrez vos règles d'automatisation.\n\n**1. Auto-Managed :**\n- Si activé, les fichiers de tuning seront traités par notre système pour vous. **Attention :** Des prix d'achat différents s'appliquent ici !\n\n**2. Use Platform DTC :**\n- Notre module DTC intégré. Vos clients peuvent effectuer des suppressions DTC automatisées. Vous décidez du prix client. En tant qu'admin, vous ne payez que 0,1 crédit (50 centimes) par fichier.\n\n**3. Use Platform CVN :**\n- Entièrement automatisé comme le DTC. La correction CVN vous coûte en tant qu'admin 1 crédit (5 Euros) par fichier.\n\n**4. WinOLS & LUA (Interceptor) :**\n- Intégrez LUA pour peupler votre plateforme. Si votre propre IA n'a pas encore de solution, cela passe par LUA. Même si le client ne demande qu'un Stage 1, si LUA peut aussi faire DPF, EGR, AdBlue et Stage 2, tout est immédiatement intégré à votre automatisation ! Le bot associé peut être téléchargé sur place."
+      },
+      "lu": {
+        "title": "Workflow Settings (16)",
+        "description": "Wann s du uewe riets op dee grénge **Workflow**-Button klicks, ginn d'Automatiséierungs-Reegelen op.\n\n**1. Auto-Managed:**\n- Wann dëst un ass, ginn d'Files vun eisem System beaarbecht. **Opgepasst:** Hei gëllen aner Akafspräisser fir dech!\n\n**2. Use Platform DTC:**\n- Eist eegent DTC-Modul. Du bestëmms, wat de Client bezilt. Un eis bezils du als Admin nëmmen 0,1 Credits (50 Cent) pro File.\n\n**3. Use Platform CVN:**\n- Komplett automatiséiert wéi beim DTC. Kascht dech als Admin 1 Credit (5 Euro) pro File.\n\n**4. WinOLS & LUA (Interceptor):**\n- Hei kanns du WinOLS via LUA abannen. Wann däin LUA-Skript zousätzlech Léisunge generéiert (z.B. Stage 2, DPF, EGR, AdBlue), ginn dës all direkt an denger Automatik gespäichert! De Bot dofir kanns du direkt do eroflueden."
+      }
+    }
+  }
+]

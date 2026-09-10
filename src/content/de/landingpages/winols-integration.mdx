@@ -1,0 +1,70 @@
+---
+title: "Seamless WinOLS Integration for Tuners"
+description: "Verknüpfe EVC WinOLS nahtlos mit deinem AI Tuning Portal. Lade ECU-Files mit einem Klick herunter, bearbeite Kennfelder und lade sie zurück in dein Portal."
+canonicalUrl: "https://tunerportal.com/de/lp/winols-integration"
+---
+
+Wenn man über professionelles Chiptuning und Kennfeldoptimierung spricht, kommt man an einem Namen nicht vorbei: **EVC WinOLS**. Es ist der absolute Industriestandard für Master-Tuner, Ingenieure und File Services weltweit. 
+
+Das Problem vieler File-Service-Softwarelösungen ist, dass sie versuchen, eigene minderwertige Hex-Editoren oder starre Automatisierungen in den Vordergrund zu stellen, die einen echten WinOLS-Workflow stören.
+
+TunerPortal wählt einen anderen Ansatz. Wir haben ein **AI Tuning Portal** gebaut, das sich exakt um das kümmert, was *vor* und *nach* WinOLS passiert: Die vollautomatische B2B-Kundenverwaltung, die Rechnungsstellung, die Dateivorqualifizierung durch Künstliche Intelligenz und die sichere Dateiauslieferung. 
+
+Das bedeutet für dich: Du kannst **kostenlos dein eigenes AI Tuning Portal erstellen** und deinen gewohnten, hochprofessionellen WinOLS-Workflow nicht nur beibehalten, sondern drastisch beschleunigen.
+
+## Der perfekte Workflow: TunerPortal + WinOLS
+
+Ein gut strukturierter Arbeitsablauf entscheidet darüber, ob du am Tag 10 Files oder 40 Files bearbeiten kannst. So sieht der optimierte Prozess aus, wenn du TunerPortal als dein Frontend für Kunden (Werkstätten, Slave-Dealer) einsetzt:
+
+### Schritt 1: Automatisierte Datei-Übergabe
+Dein Kunde loggt sich in dein gebrandetes Portal (z.B. `portal.dein-tuning.de`) ein. Er lädt das Original-File hoch und kauft sich mit Credits (die er via Stripe oder PayPal aufgeladen hat) beispielsweise eine Stage 1. 
+
+Die AI von TunerPortal analysiert das File sofort. Sie verifiziert, ob es sich beispielsweise um ein sauberes Bosch EDC17C46 Binärfile handelt, liest die Softwarenummern aus und vervollständigt das Ticket.
+
+### Schritt 2: Download und WinOLS-Import
+Du erhältst eine Push-Benachrichtigung über das neue Ticket. Du öffnest das Ticket in deinem Administrator-Dashboard, prüfst die Vorgaben und klickst auf **Download**.
+Anschließend ziehst du das Original-File per Drag & Drop direkt in dein geöffnetes EVC WinOLS. Dank der perfekten Vorarbeit der AI in TunerPortal (Auslesen von Hard- und Software-IDs) findest du das entsprechende OLS-Projekt oder Mappack in deiner Datenbank meistens in Sekundenschnelle.
+
+### Schritt 3: Kennfeldbearbeitung (Deine Expertise)
+Hier machst du das, was du am besten kannst. Du modifizierst Ladedruck, Einspritzmengen, Momentenbegrenzungen oder entfernst DTC-Codes im Hex-Editor von WinOLS. TunerPortal mischt sich in diesen Prozess nicht ein. Deine Tuning-Strategien und Mappacks bleiben lokal auf deinem Rechner bei EVC.
+
+### Schritt 4: Export und Re-Upload
+Sobald du das File fertig kalibriert und die Checksummen in WinOLS korrigiert hast, exportierst du die modifizierte `.bin` Datei.
+Du ziehst das fertige File per Drag & Drop zurück in das offene Ticket deines TunerPortals. Das Portal schließt das Ticket, speichert das File DSGVO-konform im Archiv deines Kunden und verschickt automatisch eine E-Mail (mit deinem Firmenlogo), dass das Tuning-File zum Download bereitsteht.
+
+## Zukunftsausblick: Die WinOLS Interceptor API
+
+Wir wissen, dass "Drag & Drop" gut ist, aber echte API-Automatisierung noch besser ist. 
+
+TunerPortal ist architektonisch darauf vorbereitet, künftig direkte API-Schnittstellen und sogenannte "WinOLS Interceptoren" anzubieten. Das Ziel dieser Entwicklungsstufe ist ein "One-Click-Workflow": Ein hochgeladenes File im Portal öffnet sich auf Knopfdruck automatisch als neues Projekt in deinem lokalen WinOLS, inklusive bereits ausgefüllter Projekt-Eigenschaften (Kunde, Fahrzeug, HW/SW-ID). Nach dem Export aus WinOLS synchronisiert sich das File automatisch zurück in die Cloud.
+
+Indem du jetzt kostenlos dein AI Tuning Portal aufbaust, sicherst du dir die Infrastruktur, um von all diesen kommenden Branchen-Integrationen (EVC, Alientech, Magicmotorsport) als einer der Ersten zu profitieren.
+
+## Warum WinOLS-User zu TunerPortal wechseln
+
+Tuner, die WinOLS beherrschen, sind meist Technik-Enthusiasten. Sie verbringen Stunden damit, Hexadezimal-Werte zu analysieren und Damos-Dateien zu studieren. Womit sie jedoch keine Zeit verbringen wollen, ist Administration.
+
+### Das Prepaid-Credit-System schützt deine Zeit
+Es gibt nichts Frustrierenderes, als eine Stunde an einer komplexen MD1-Steuergeräte-Struktur in WinOLS zu arbeiten, das File an eine Werkstatt zu schicken und dann drei Wochen lang der Rechnung hinterherzulaufen.
+Das in TunerPortal integrierte Credit-System (via Stripe & PayPal) zwingt deine B2B-Kunden dazu, im Voraus (Prepaid) zu bezahlen. Kein Credit-Guthaben = Kein Download des WinOLS-Files. So schützt du deine wertvolle Arbeitszeit vor Zahlungsausfällen.
+
+### Reseller-Rabatte ohne Excel-Chaos
+Du kannst in WinOLS zwar wunderbar Kennfelder organisieren, aber keine Kundenrabatte. In TunerPortal legst du einfach fest, dass dein bester Reseller (Kunde A) nur 5 Credits für eine Stage 1 zahlt, während ein Neukunde (Kunde B) 10 Credits zahlt. Das Portal berechnet die Transaktionen und Rechnungen vollautomatisch.
+
+## Starte dein digitales Setup noch heute
+
+Bringe das Frontend deines File-Services (die Kundenkommunikation) auf dasselbe professionelle Level wie das Backend (deine Arbeit in WinOLS).
+
+Du gehst kein finanzielles Risiko ein. Du kannst dir dein White-Label Portal bei uns **völlig kostenlos erstellen**. Richte dein Firmenlogo ein, binde deine Domain an, hinterlege deine Stripe-API und starte deinen automatisierten Workflow. Wir finanzieren die Cloud-Plattform lediglich über eine kleine, faire Transaktionsgebühr, wenn deine Kunden Credits einkaufen.
+
+---
+
+<FAQ question="Benötige ich das EVC WinOLS Reseller Plugin für TunerPortal?" answer="Nein. TunerPortal arbeitet komplett unabhängig vom WinOLS Reseller (Credits) System von EVC. Du erhältst mit TunerPortal dein eigenes, unabhängiges und markengebundenes Portal, in dem DU die Kontrolle über Kunden, Preise und Rechnungen hast." />
+
+<FAQ question="Kann ich Dateien aus WinOLS direkt in TunerPortal hochladen?" answer="Aktuell exportierst du die modifizierte Datei aus WinOLS lokal auf deinen Rechner (z.B. in einen Export-Ordner) und ziehst sie per Drag & Drop in das TunerPortal Ticket. Dies dauert nur wenige Sekunden." />
+
+<FAQ question="Erstellt TunerPortal OLSX oder Map-Packs für mich?" answer="Nein. TunerPortal ist eine B2B-Management-Plattform für deinen File Service. Die Bearbeitung der Kennfelder und die Erstellung von Map-Packs (Damos/OLSX) bleiben dein handwerkliches Know-how innerhalb von WinOLS." />
+
+<FAQ question="Wie korrigiere ich Checksummen (CS)?" answer="Das Portal verändert den Binärcode der hochgeladenen Dateien nicht. Du korrigierst die Checksummen wie gewohnt durch deine installierten EVC Checksummen-Module direkt beim Export aus WinOLS." />
+
+<FAQ question="Können auch Slave-Files von Alientech oder AutoTuner hochgeladen werden?" answer="Ja. Deine Kunden können Container-Dateien (Slave Files) normal im Portal hochladen. Du bearbeitest diese nach dem Entschlüsseln in WinOLS und lädst die fertig verschlüsselten Slave-Files wieder in das Ticket hoch." />

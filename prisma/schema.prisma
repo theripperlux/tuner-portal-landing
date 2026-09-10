@@ -1,0 +1,255 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id                            String             @id @default(cuid())
+  firstName                     String?
+  lastName                      String?
+  companyName                   String?
+  address                       String?
+  zip                           String?
+  country                       String?
+  euVat                         String?
+  phone                         String?
+  companySlug                   String?
+  adminDomain                   String?
+  customerDomain                String?
+  // ---- Backend tenant-registration link (public API) ----
+  tenantRegistrationId          String?
+  tenantRegistrationError       String?
+  tenantRegistrationSubmittedAt DateTime?
+  name                          String?
+  email                         String?            @unique
+  password                      String?
+  portalPassword                String?
+  createdAt                     DateTime           @default(now())
+  updatedAt                     DateTime           @updatedAt
+  jobs                          TuningJob[]
+  tickets                       Ticket[]
+  memberships                   TenantMembership[]
+  storedFiles                   StoredFile[]
+}
+
+model Tenant {
+  id               String              @id @default(cuid())
+  name             String
+  domain           String?             @unique
+  logoUrl          String?
+  primaryColor     String?
+  secondaryColor   String?
+  ownerId          String?
+  status           String              @default("pending") // pending, active, suspended, disabled, rejected
+  onboardingStatus String              @default("not_started") // not_started, in_progress, completed, blocked
+  settings         TenantSettings?
+  transactions     CreditTransaction[]
+  jobs             TuningJob[]
+  slaves           SlaveDevice[]
+  memberships      TenantMembership[]
+  tickets          Ticket[]
+  storedFiles      StoredFile[]
+  ticketReplies    TicketReply[]
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+}
+
+model TenantMembership {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenantId         String
+  tenant           Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  role             String   @default("customer") // owner, admin, manager, staff, customer
+  membershipStatus String   @default("active") // active, inactive, invited, blocked
+  credits          Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  creditTransactions CreditTransaction[]
+  storedFiles        StoredFile[]
+  tuningJobs         TuningJob[]
+  ticketReplies      TicketReply[]
+
+  @@unique([userId, tenantId])
+  @@index([userId])
+  @@index([tenantId])
+}
+
+model TenantSettings {
+  id             String  @id @default(cuid())
+  tenantId       String  @unique
+  tenant         Tenant  @relation(fields: [tenantId], references: [id])
+  stripeKey      String?
+  paypalKey      String?
+  winolsEvcKey   String?
+  vatCheckerKey  String?
+  smtpHost       String?
+  smtpPort       Int?
+  smtpUser       String?
+  smtpPass       String?
+  companyName    String?
+  companyAddress String?
+  companyPhone   String?
+  companyVat     String?
+}
+
+model CreditTransaction {
+  id             String   @id @default(cuid())
+  tenantId       String
+  membershipId   String
+  amount         Int
+  type           String // PURCHASE, USAGE, REFUND, ADJUSTMENT
+  reason         String?
+  idempotencyKey String
+  createdAt      DateTime @default(now())
+
+  tenant     Tenant           @relation(fields: [tenantId], references: [id])
+  membership TenantMembership @relation(fields: [membershipId], references: [id])
+
+  @@unique([tenantId, idempotencyKey])
+  @@index([tenantId, membershipId, createdAt])
+}
+
+model TuningJob {
+  id           String           @id @default(cuid())
+  userId       String
+  user         User             @relation(fields: [userId], references: [id])
+  tenantId     String
+  tenant       Tenant           @relation(fields: [tenantId], references: [id])
+  membershipId String
+  membership   TenantMembership @relation(fields: [membershipId], references: [id])
+
+  originalFileId String
+  originalFile   StoredFile @relation("OriginalFile", fields: [originalFileId], references: [id])
+
+  tunedFileId String?
+  tunedFile   StoredFile? @relation("TunedFile", fields: [tunedFileId], references: [id])
+
+  status String @default("DRAFT") // DRAFT, SUBMITTED, PROCESSING, COMPLETED, FAILED, CANCELLED
+
+  calculatedCreditCost     Int
+  pricingVersion           String?
+  submissionIdempotencyKey String? @unique
+
+  createdAt DateTime @default(now())
+
+  @@index([tenantId, membershipId, createdAt])
+}
+
+model SlaveDevice {
+  id           String   @id @default(cuid())
+  name         String
+  type         String // Flex, Autotuner, Kess
+  serialNumber String
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+// ---- NEW MODELS FOR SAAS BACKEND ----
+
+model StoredFile {
+  id                     String    @id @default(cuid())
+  tenantId               String
+  ownerUserId            String? // The actual user who owns this file
+  uploadedByMembershipId String? // Nullable if membership is deleted, to retain audit/billing context
+  storageProvider        String
+  storageKey             String
+  originalFilename       String
+  sizeBytes              Int
+  checksum               String?
+  detectedContentType    String?
+  status                 String    @default("PENDING") // PENDING, UPLOADED, VALIDATING, QUARANTINED, READY, REJECTED, DELETED
+  createdAt              DateTime  @default(now())
+  deletedAt              DateTime?
+
+  tenant     Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  uploadedBy TenantMembership? @relation(fields: [uploadedByMembershipId], references: [id], onDelete: SetNull)
+  owner      User?             @relation(fields: [ownerUserId], references: [id], onDelete: SetNull)
+
+  tuningJobsOriginal TuningJob[] @relation("OriginalFile")
+  tuningJobsTuned    TuningJob[] @relation("TunedFile")
+
+  @@index([tenantId, uploadedByMembershipId])
+  @@index([storageKey])
+}
+
+model OutboxEvent {
+  id          String    @id @default(cuid())
+  eventType   String // e.g., 'FILE_UPLOADED', 'JOB_SUBMITTED'
+  payload     String // JSON string
+  status      String    @default("PENDING") // PENDING, PROCESSED, FAILED
+  processedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([status, createdAt])
+}
+
+model SystemSettings {
+  id         String   @id @default("1")
+  smtpHost   String?
+  smtpPort   Int?
+  smtpUser   String?
+  smtpPass   String?
+  smtpSecure Boolean  @default(true)
+  updatedAt  DateTime @updatedAt
+}
+
+model Ticket {
+  id        String        @id @default(cuid())
+  subject   String
+  message   String
+  status    String        @default("OPEN") // OPEN, CLOSED, WAITING
+  userId    String
+  user      User          @relation(fields: [userId], references: [id])
+  tenantId  String
+  tenant    Tenant        @relation(fields: [tenantId], references: [id])
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  replies   TicketReply[]
+
+  @@index([tenantId, userId, createdAt])
+  @@index([tenantId, status])
+}
+
+model TicketReply {
+  id       String @id @default(cuid())
+  message  String
+  ticketId String
+  ticket   Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  authorMembershipId String
+  authorMembership   TenantMembership @relation(fields: [authorMembershipId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@index([tenantId, ticketId])
+}
+
+model LiveChat {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  status    String        @default("ACTIVE") // ACTIVE, CLOSED
+  createdAt DateTime      @default(now())
+  messages  LiveMessage[]
+}
+
+model LiveMessage {
+  id        String   @id @default(cuid())
+  message   String
+  isAdmin   Boolean  @default(false)
+  chatId    String
+  chat      LiveChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
