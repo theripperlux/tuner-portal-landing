@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Adminportal",
     "overviewCustomerPortalLabel": "Klantenportal",
     "overviewCompanyLabel": "Bedrijf",
-    "overviewNeedChanges": "Wil je je domein of bedrijfsgegevens wijzigen? Neem contact op met support, we helpen je graag."
+    "overviewNeedChanges": "Wil je je domein of bedrijfsgegevens wijzigen? Neem contact op met support, we helpen je graag.",
+    "stepContinueBtn": "Doorgaan",
+    "stepBack": "Terug",
+    "stepValidationError": "Vul alle velden in voordat je verdergaat.",
+    "domainHelpBanner": "Weet je niet zeker hoe je je DNS moet bijwerken? We helpen je graag je domein te koppelen — neem gewoon contact met ons op."
   },
   "HomeRedesign": {
     "heroBadge": "Het Besturingssysteem voor uw Tuning Portal",

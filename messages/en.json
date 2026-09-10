@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Admin Portal",
     "overviewCustomerPortalLabel": "Customer Portal",
     "overviewCompanyLabel": "Company",
-    "overviewNeedChanges": "Need to update your domain or company details? Contact support and we will help."
+    "overviewNeedChanges": "Need to update your domain or company details? Contact support and we will help.",
+    "stepContinueBtn": "Continue",
+    "stepBack": "Back",
+    "stepValidationError": "Please fill in all fields before continuing.",
+    "domainHelpBanner": "Not sure how to update your DNS? We'll help you connect your domain — just reach out."
   },
   "Showcase": {
     "title": "Platform Capabilities",

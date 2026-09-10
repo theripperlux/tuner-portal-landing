@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Portal de administração",
     "overviewCustomerPortalLabel": "Portal de clientes",
     "overviewCompanyLabel": "Empresa",
-    "overviewNeedChanges": "Precisa de atualizar o seu domínio ou dados da empresa? Contacte o suporte, teremos todo o gosto em ajudar."
+    "overviewNeedChanges": "Precisa de atualizar o seu domínio ou dados da empresa? Contacte o suporte, teremos todo o gosto em ajudar.",
+    "stepContinueBtn": "Continuar",
+    "stepBack": "Voltar",
+    "stepValidationError": "Preencha todos os campos antes de continuar.",
+    "domainHelpBanner": "Não sabe como atualizar o seu DNS? Ajudamo-lo a ligar o seu domínio — basta entrar em contacto."
   },
   "Showcase": {
     "title": "Platform Capabilities",

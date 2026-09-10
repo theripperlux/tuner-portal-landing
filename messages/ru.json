@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Админ-портал",
     "overviewCustomerPortalLabel": "Клиентский портал",
     "overviewCompanyLabel": "Компания",
-    "overviewNeedChanges": "Нужно изменить домен или данные компании? Свяжитесь с поддержкой — мы с радостью поможем."
+    "overviewNeedChanges": "Нужно изменить домен или данные компании? Свяжитесь с поддержкой — мы с радостью поможем.",
+    "stepContinueBtn": "Продолжить",
+    "stepBack": "Назад",
+    "stepValidationError": "Пожалуйста, заполните все поля, прежде чем продолжить.",
+    "domainHelpBanner": "Не уверены, как обновить DNS? Мы поможем вам подключить домен — просто свяжитесь с нами."
   },
   "Showcase": {
     "title": "Platform Capabilities",

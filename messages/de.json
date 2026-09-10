@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Admin-Portal",
     "overviewCustomerPortalLabel": "Kunden-Portal",
     "overviewCompanyLabel": "Unternehmen",
-    "overviewNeedChanges": "Möchtest du deine Domain oder Firmendaten ändern? Kontaktiere den Support, wir helfen gerne."
+    "overviewNeedChanges": "Möchtest du deine Domain oder Firmendaten ändern? Kontaktiere den Support, wir helfen gerne.",
+    "stepContinueBtn": "Weiter",
+    "stepBack": "Zurück",
+    "stepValidationError": "Bitte fülle alle Felder aus, bevor du fortfährst.",
+    "domainHelpBanner": "Nicht sicher, wie du deine DNS-Einträge aktualisierst? Wir helfen dir gerne bei der Domain-Verbindung — melde dich einfach bei uns."
   },
   "Showcase": {
     "title": "Plattform Fähigkeiten",

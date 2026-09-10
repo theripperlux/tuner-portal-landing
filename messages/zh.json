@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "管理后台门户",
     "overviewCustomerPortalLabel": "客户门户",
     "overviewCompanyLabel": "公司",
-    "overviewNeedChanges": "需要更新您的域名或公司信息吗？请联系支持团队，我们很乐意为您提供帮助。"
+    "overviewNeedChanges": "需要更新您的域名或公司信息吗？请联系支持团队，我们很乐意为您提供帮助。",
+    "stepContinueBtn": "继续",
+    "stepBack": "返回",
+    "stepValidationError": "请填写所有字段后再继续。",
+    "domainHelpBanner": "不确定如何更新 DNS？我们会帮您连接域名——只需联系我们即可。"
   },
   "Showcase": {
     "title": "Platform Capabilities",

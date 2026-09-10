@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Adminportal",
     "overviewCustomerPortalLabel": "Kundeportal",
     "overviewCompanyLabel": "Bedrift",
-    "overviewNeedChanges": "Trenger du å oppdatere domenet eller bedriftsopplysningene dine? Kontakt support, vi hjelper gjerne til."
+    "overviewNeedChanges": "Trenger du å oppdatere domenet eller bedriftsopplysningene dine? Kontakt support, vi hjelper gjerne til.",
+    "stepContinueBtn": "Fortsett",
+    "stepBack": "Tilbake",
+    "stepValidationError": "Fyll ut alle feltene før du fortsetter.",
+    "domainHelpBanner": "Usikker på hvordan du oppdaterer DNS-en din? Vi hjelper deg gjerne med å koble til domenet ditt — bare ta kontakt."
   },
   "Showcase": {
     "title": "Platform Capabilities",

@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "بوابة الإدارة",
     "overviewCustomerPortalLabel": "بوابة العملاء",
     "overviewCompanyLabel": "الشركة",
-    "overviewNeedChanges": "هل تحتاج إلى تحديث نطاقك أو بيانات شركتك؟ تواصل مع الدعم وسنكون سعداء بمساعدتك."
+    "overviewNeedChanges": "هل تحتاج إلى تحديث نطاقك أو بيانات شركتك؟ تواصل مع الدعم وسنكون سعداء بمساعدتك.",
+    "stepContinueBtn": "متابعة",
+    "stepBack": "رجوع",
+    "stepValidationError": "يرجى تعبئة جميع الحقول قبل المتابعة.",
+    "domainHelpBanner": "لست متأكدًا من كيفية تحديث إعدادات DNS الخاصة بك؟ سنساعدك في ربط نطاقك — فقط تواصل معنا."
   },
   "Showcase": {
     "title": "Platform Capabilities",

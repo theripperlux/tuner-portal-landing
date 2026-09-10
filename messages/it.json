@@ -297,7 +297,11 @@
     "overviewAdminPortalLabel": "Portale amministratore",
     "overviewCustomerPortalLabel": "Portale clienti",
     "overviewCompanyLabel": "Azienda",
-    "overviewNeedChanges": "Devi aggiornare il tuo dominio o i dati aziendali? Contatta il supporto, saremo felici di aiutarti."
+    "overviewNeedChanges": "Devi aggiornare il tuo dominio o i dati aziendali? Contatta il supporto, saremo felici di aiutarti.",
+    "stepContinueBtn": "Continua",
+    "stepBack": "Indietro",
+    "stepValidationError": "Compila tutti i campi prima di continuare.",
+    "domainHelpBanner": "Non sai come aggiornare il tuo DNS? Ti aiutiamo a collegare il tuo dominio: contattaci pure."
   },
   "HomeRedesign": {
     "heroBadge": "Il Sistema Operativo per il tuo Business di Tuning",
