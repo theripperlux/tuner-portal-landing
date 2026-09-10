@@ -202,30 +202,30 @@ export default function DashboardClient({ user }: { user: any }) {
                 <p className="sm:col-span-2 text-[11px] text-gray-500 leading-relaxed">{t('domainHint')}</p>
               </div>
 
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-black/10 mb-4">
-                <div className="bg-[#f8f9fa] border-b border-black/5 px-4 py-2.5 grid grid-cols-12 gap-3 text-[11px] font-bold text-[#1f2937] tracking-wide uppercase">
+              <div className="bg-black/30 rounded-xl overflow-hidden border border-white/10 mb-4">
+                <div className="bg-white/[0.04] border-b border-white/10 px-4 py-2.5 grid grid-cols-12 gap-3 text-[11px] font-bold text-gray-400 tracking-wide uppercase">
                   <div className="col-span-5">{t('cnameSubdomainUsage')}</div>
                   <div className="col-span-7">{t('cnameTargetValue')}</div>
                 </div>
-                <div className="bg-white border-b border-black/5 px-4 py-3 grid grid-cols-12 gap-3 items-center">
+                <div className="border-b border-white/10 px-4 py-3 grid grid-cols-12 gap-3 items-center">
                   <div className="col-span-5">
-                    <span className="inline-block px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForAdmin')}</span>
-                    <p className={twMerge('text-sm font-semibold', form.adminDomain ? 'text-[#0052cc]' : 'text-gray-400 italic font-normal')}>{form.adminDomain || t('adminDomain')}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{t('cnameType')}</p>
+                    <span className="inline-block px-2 py-0.5 bg-red-500/15 text-red-400 border border-red-500/20 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForAdmin')}</span>
+                    <p className={twMerge('text-sm font-semibold', form.adminDomain ? 'text-white' : 'text-gray-500 italic font-normal')}>{form.adminDomain || t('adminDomain')}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{t('cnameType')}</p>
                   </div>
                   <div className="col-span-7 flex items-center gap-2">
-                    <p className="flex-1 min-w-0 text-gray-700 text-xs font-mono bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 select-all truncate">70d64f5d10ce3321.vercel-dns-017.com.</p>
+                    <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 select-all truncate">70d64f5d10ce3321.vercel-dns-017.com.</p>
                     <CopyButton value="70d64f5d10ce3321.vercel-dns-017.com." />
                   </div>
                 </div>
-                <div className="bg-white px-4 py-3 grid grid-cols-12 gap-3 items-center">
+                <div className="px-4 py-3 grid grid-cols-12 gap-3 items-center">
                   <div className="col-span-5">
-                    <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForCustomers')}</span>
-                    <p className={twMerge('text-sm font-semibold', form.customerDomain ? 'text-[#0052cc]' : 'text-gray-400 italic font-normal')}>{form.customerDomain || t('portalDomain')}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{t('cnameType')}</p>
+                    <span className="inline-block px-2 py-0.5 bg-blue-500/15 text-blue-400 border border-blue-500/20 text-[10px] font-bold rounded uppercase mb-1">{t('cnameForCustomers')}</span>
+                    <p className={twMerge('text-sm font-semibold', form.customerDomain ? 'text-white' : 'text-gray-500 italic font-normal')}>{form.customerDomain || t('portalDomain')}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{t('cnameType')}</p>
                   </div>
                   <div className="col-span-7 flex items-center gap-2">
-                    <p className="flex-1 min-w-0 text-gray-700 text-xs font-mono bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 select-all truncate">2145f1913d58fb07.vercel-dns-017.com.</p>
+                    <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-1.5 rounded-lg border border-white/10 select-all truncate">2145f1913d58fb07.vercel-dns-017.com.</p>
                     <CopyButton value="2145f1913d58fb07.vercel-dns-017.com." />
                   </div>
                 </div>
