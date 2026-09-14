@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { ShieldCheck, HelpCircle, Save, PlayCircle, ChevronDown, ChevronLeft, Loader2, MessageCircle, AlertCircle, CheckCircle2, Clock, Check, Building2 } from 'lucide-react';
+import { ShieldCheck, HelpCircle, Save, PlayCircle, ChevronDown, ChevronLeft, Loader2, MessageCircle, AlertCircle, CheckCircle2, Clock, Check, Building2, Globe } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -57,6 +57,7 @@ export default function DashboardClient({ user }: { user: any }) {
   const [selectedHoster, setSelectedHoster] = useState('IONOS');
   const [showVideo, setShowVideo] = useState(false);
   const [showHosterSteps, setShowHosterSteps] = useState(false);
+  const [showRootDomainInfo, setShowRootDomainInfo] = useState(false);
   const [form, setForm] = useState({
     companyName: user.companyName || '',
     phone: user.phone || '',
@@ -238,6 +239,43 @@ export default function DashboardClient({ user }: { user: any }) {
                     <AlertCircle className="w-4 h-4 mr-2.5 mt-0.5 shrink-0 text-gray-500" />
                     <span>{t('cnameDotNote')}</span>
                   </p>
+
+                  {/* Root-domain alternative — a CNAME can't sit at the zone
+                      apex, so a customer who wants e.g. "your-domain.com"
+                      instead of "portal.your-domain.com" needs an A record
+                      instead. Collapsed by default: most customers use the
+                      subdomain/CNAME path above, this only covers the apex
+                      case. Same value applies to either panel domain. */}
+                  <button
+                    type="button"
+                    onClick={() => setShowRootDomainInfo(v => !v)}
+                    className="w-full flex items-center justify-between gap-2 text-xs font-medium text-gray-400 hover:text-white bg-white/[0.02] hover:bg-white/5 border border-white/10 rounded-lg px-4 py-3 mt-3 transition-all"
+                  >
+                    <span className="flex items-center gap-2"><Globe className="w-3.5 h-3.5" /> {t('rootDomainToggle')}</span>
+                    <ChevronDown className={twMerge('w-4 h-4 transition-transform duration-200', showRootDomainInfo && 'rotate-180')} />
+                  </button>
+                  {showRootDomainInfo && (
+                    <div className="bg-black/30 rounded-xl border border-white/10 p-4 mt-2">
+                      <p className="text-xs text-gray-400 leading-relaxed mb-3">{t('rootDomainInfo')}</p>
+                      <span className="inline-block px-2.5 py-1 bg-purple-500/15 text-purple-400 border border-purple-500/20 text-[10px] font-bold rounded uppercase mb-3">{t('aRecordBadge')}</span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-500 tracking-wide uppercase mb-1.5">{t('recordNameLabel')}</p>
+                          <div className="flex items-center gap-2">
+                            <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-2 rounded-lg border border-white/10 select-all break-all">@</p>
+                            <CopyButton value="@" />
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-500 tracking-wide uppercase mb-1.5">{t('recordValueLabel')}</p>
+                          <div className="flex items-center gap-2">
+                            <p className="flex-1 min-w-0 text-gray-300 text-xs font-mono bg-black/40 px-3 py-2 rounded-lg border border-white/10 select-all break-all">216.150.1.1</p>
+                            <CopyButton value="216.150.1.1" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div>
