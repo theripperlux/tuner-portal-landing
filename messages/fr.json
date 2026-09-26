@@ -1163,6 +1163,7 @@
     "usersPortalPass": "Mot de passe du portail :",
     "usersPass": "Mot de passe :",
     "usersProtected": "Protégé",
+    "usersSecretSet": "Défini",
     "usersDeleteConfirm": "Supprimer définitivement cet utilisateur de la base de données ? Cette action est irréversible.",
     "ticketsTitle": "Support",
     "ticketsSubtitle": "Résolvez les demandes clients et les questions techniques.",

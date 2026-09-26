@@ -1205,6 +1205,7 @@
     "usersPortalPass": "Portal-Passwort:",
     "usersPass": "Passwort:",
     "usersProtected": "Geschützt",
+    "usersSecretSet": "Gesetzt",
     "usersDeleteConfirm": "Nutzer dauerhaft aus der Datenbank löschen? Dies kann nicht rückgängig gemacht werden.",
     "ticketsTitle": "Support Desk",
     "ticketsSubtitle": "Löse Kundenanliegen und technische Anfragen.",

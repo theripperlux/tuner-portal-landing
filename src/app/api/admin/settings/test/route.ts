@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { sendTestEmail } from "@/lib/mailer";
+import { getPlatformAdminUser } from "@/lib/auth/platformAdmin";
 
 /**
  * Sends a test email to the provided address using the saved global
@@ -9,12 +8,8 @@ import { sendTestEmail } from "@/lib/mailer";
  * the SMTP settings first, then test.
  */
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions);
-  const role = session?.user?.role?.toLowerCase();
-  const email = session?.user?.email;
-  const isAuthorized = role === "admin" || role === "owner" || email === "info@tunerportal.com" || email === "info@deepxclusive.com";
-
-  if (!session || !isAuthorized) {
+  const adminUser = await getPlatformAdminUser();
+  if (!adminUser) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

@@ -1205,6 +1205,7 @@
     "usersPortalPass": "门户密码：",
     "usersPass": "密码：",
     "usersProtected": "已保护",
+    "usersSecretSet": "已设置",
     "usersDeleteConfirm": "确定要从数据库中永久删除此用户吗？此操作无法撤销。",
     "ticketsTitle": "支持工单",
     "ticketsSubtitle": "处理客户咨询与技术请求。",

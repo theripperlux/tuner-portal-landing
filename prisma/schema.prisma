@@ -29,6 +29,11 @@ model User {
   email                         String?            @unique
   password                      String?
   portalPassword                String?
+  // Platform-wide superadmin flag. Distinct from TenantMembership.role
+  // (which is per-tenant and freely obtained by every tenant owner) —
+  // this must never be set from any user-facing request; only via a
+  // trusted operator script (scripts/promote-platform-admin.ts).
+  isPlatformAdmin               Boolean            @default(false)
   createdAt                     DateTime           @default(now())
   updatedAt                     DateTime           @updatedAt
   jobs                          TuningJob[]

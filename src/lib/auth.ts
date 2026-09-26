@@ -53,6 +53,9 @@ export const authOptions: NextAuthOptions = {
           // "no tenant/membership exists yet".
           tenantStatus: activeMembership?.tenant?.status || "not_started",
           tenantOnboardingStatus: activeMembership?.tenant?.onboardingStatus || "not_started",
+          // UI redirect hint only (see next-auth.d.ts) — every server-side
+          // admin check re-verifies this against the DB, never trusts the JWT.
+          isPlatformAdmin: user.isPlatformAdmin,
         };
       }
     })
@@ -65,6 +68,7 @@ export const authOptions: NextAuthOptions = {
         token.tenantId = user.tenantId;
         token.tenantStatus = (user as any).tenantStatus;
         token.tenantOnboardingStatus = (user as any).tenantOnboardingStatus;
+        token.isPlatformAdmin = (user as any).isPlatformAdmin;
       }
       return token;
     },
@@ -75,6 +79,7 @@ export const authOptions: NextAuthOptions = {
         session.user.tenantId = token.tenantId as string | null | undefined;
         session.user.tenantStatus = token.tenantStatus as string;
         session.user.tenantOnboardingStatus = token.tenantOnboardingStatus as string;
+        session.user.isPlatformAdmin = token.isPlatformAdmin as boolean;
       }
       return session;
     }

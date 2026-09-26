@@ -30,7 +30,7 @@ export default function LoginPage() {
       setLoading(false);
     } else {
       const session = await getSession();
-      if ((session?.user?.role === 'ADMIN' || session?.user?.email === 'info@deepxclusive.com' || session?.user?.email === 'info@tunerportal.com')) {
+      if (session?.user?.isPlatformAdmin) {
         router.push('/admin');
       } else {
         router.push('/dashboard');

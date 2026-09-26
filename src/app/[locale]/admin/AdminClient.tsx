@@ -437,20 +437,20 @@ export default function AdminClient({ users, tickets, chats, settings }: any) {
                             )}
                           </td>
                           <td className="px-6 py-4 align-top">
-                            {u.portalPassword && (
+                            {u.hasPortalPassword && (
                               <div className="text-xs text-gray-400 mb-1">
-                                <span className="text-gray-600">{t('usersPortalPass')}</span> <span className="font-mono text-white">{u.portalPassword}</span>
+                                <span className="text-gray-600">{t('usersPortalPass')}</span> <span className="font-mono text-white">{t('usersSecretSet')}</span>
                               </div>
                             )}
-                            {u.password && (
+                            {u.hasPassword && (
                               <div className="text-xs text-gray-400">
-                                <span className="text-gray-600">{t('usersPass')}</span> <span className="font-mono truncate max-w-[120px] inline-block align-bottom text-white" title={u.password}>{u.password}</span>
+                                <span className="text-gray-600">{t('usersPass')}</span> <span className="font-mono text-white">{t('usersSecretSet')}</span>
                               </div>
                             )}
-                            {!u.password && !u.portalPassword && <span className="text-xs text-gray-600">-</span>}
+                            {!u.hasPassword && !u.hasPortalPassword && <span className="text-xs text-gray-600">-</span>}
                           </td>
                           <td className="px-6 py-4 text-right">
-                            {(u.email === 'info@tunerportal.com' || u.email === 'info@deepxclusive.com') ? (
+                            {u.isPlatformAdmin ? (
                               <span className="inline-flex items-center px-2 py-1 rounded bg-white/5 text-gray-400 text-[10px] font-bold uppercase border border-white/10">
                                 {t('usersProtected')}
                               </span>

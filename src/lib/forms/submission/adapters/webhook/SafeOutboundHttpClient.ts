@@ -19,7 +19,7 @@ function ipToLong(ip: string): number {
 function isPrivateIPv4(ip: string): boolean {
   if (ip === '255.255.255.255') return true;
   const longIp = ipToLong(ip);
-  
+
   // 127.0.0.0/8 (Loopback)
   if (((longIp & 0xff000000) >>> 0) === 0x7f000000) return true;
   // 10.0.0.0/8 (Private)
@@ -28,22 +28,44 @@ function isPrivateIPv4(ip: string): boolean {
   if (((longIp & 0xfff00000) >>> 0) === 0xac100000) return true;
   // 192.168.0.0/16 (Private)
   if (((longIp & 0xffff0000) >>> 0) === 0xc0a80000) return true;
-  // 169.254.0.0/16 (Link-local)
+  // 169.254.0.0/16 (Link-local, incl. cloud metadata endpoints)
   if (((longIp & 0xffff0000) >>> 0) === 0xa9fe0000) return true;
+  // 100.64.0.0/10 (Carrier-grade NAT / shared address space)
+  if (((longIp & 0xffc00000) >>> 0) === 0x64400000) return true;
   // 0.0.0.0/8 (Current network)
   if (((longIp & 0xff000000) >>> 0) === 0x00000000) return true;
-  
+
   return false;
 }
 
+// Turns two up-to-4-digit hex groups (the low 32 bits of an IPv6 address)
+// into a dotted-decimal IPv4 string, e.g. ("7f00","1") -> "127.0.0.1".
+function hexGroupsToIPv4(hi: string, lo: string): string {
+  const hiNum = parseInt(hi || '0', 16);
+  const loNum = parseInt(lo || '0', 16);
+  return [(hiNum >> 8) & 0xff, hiNum & 0xff, (loNum >> 8) & 0xff, loNum & 0xff].join('.');
+}
+
 function isPrivateIPv6(ip: string): boolean {
-  // Simplistic check for standard IPv6 loopback and private blocks
-  if (ip === '::1') return true;
   const lower = ip.toLowerCase();
-  if (lower.startsWith('fc') || lower.startsWith('fd')) return true; // Unique local address
-  if (lower.startsWith('fe8') || lower.startsWith('fe9') || lower.startsWith('fea') || lower.startsWith('feb')) return true; // Link-local
-  // Checking for IPv4 mapped IPv6 (::ffff:127.0.0.1) is complex without a full parser, 
-  // but Node's dns module generally resolves IPv4 mapped addresses as IPv4.
+
+  if (lower === '::1' || lower === '::') return true; // Loopback / unspecified
+
+  // IPv4-mapped (::ffff:a.b.c.d or ::ffff:7f00:1) and the NAT64 well-known
+  // prefix (64:ff9b::/96) both embed a real IPv4 address in the low 32
+  // bits — resolve it and defer to the IPv4 check so a private/loopback
+  // address can't sneak past the IPv6 branch in either notation.
+  const dottedMatch = lower.match(/^(?:::ffff:|64:ff9b::)(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/);
+  if (dottedMatch) return isPrivateIPv4(dottedMatch[1]);
+
+  const hexMatch = lower.match(/^(?:::ffff:|64:ff9b::)([0-9a-f]{1,4}):([0-9a-f]{1,4})$/);
+  if (hexMatch) return isPrivateIPv4(hexGroupsToIPv4(hexMatch[1], hexMatch[2]));
+
+  if (lower.startsWith('fc') || lower.startsWith('fd')) return true; // fc00::/7 Unique local address
+  if (lower.startsWith('fe8') || lower.startsWith('fe9') || lower.startsWith('fea') || lower.startsWith('feb')) return true; // fe80::/10 Link-local
+  if (lower.startsWith('ff')) return true; // ff00::/8 Multicast
+  if (lower.startsWith('2001:db8:')) return true; // Documentation range, never publicly routable
+
   return false;
 }
 

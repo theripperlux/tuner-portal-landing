@@ -1,16 +1,11 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { sendCustomerEmail } from "@/lib/mailer";
+import { getPlatformAdminUser } from "@/lib/auth/platformAdmin";
 
 export async function POST(req: Request) {
   try {
-    const session = await getServerSession(authOptions);
-    const role = session?.user?.role?.toLowerCase();
-    const email = session?.user?.email;
-    const isAuthorized = role === "admin" || role === "owner" || email === "info@tunerportal.com" || email === "info@deepxclusive.com";
-
-    if (!session || !isAuthorized) {
+    const adminUser = await getPlatformAdminUser();
+    if (!adminUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 

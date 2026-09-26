@@ -1163,6 +1163,7 @@
     "usersPortalPass": "Contraseña del portal:",
     "usersPass": "Contraseña:",
     "usersProtected": "Protegido",
+    "usersSecretSet": "Establecida",
     "usersDeleteConfirm": "¿Eliminar permanentemente este usuario de la base de datos? Esta acción no se puede deshacer.",
     "ticketsTitle": "Centro de soporte",
     "ticketsSubtitle": "Resuelve consultas de clientes y solicitudes técnicas.",

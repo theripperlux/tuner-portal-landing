@@ -1205,6 +1205,7 @@
     "usersPortalPass": "Portalpassord:",
     "usersPass": "Passord:",
     "usersProtected": "Beskyttet",
+    "usersSecretSet": "Angitt",
     "usersDeleteConfirm": "Slette denne brukeren permanent fra databasen? Dette kan ikke angres.",
     "ticketsTitle": "Supportsenter",
     "ticketsSubtitle": "Løs kundehenvendelser og tekniske forespørsler.",

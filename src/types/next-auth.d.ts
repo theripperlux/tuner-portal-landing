@@ -7,6 +7,9 @@ declare module "next-auth" {
     tenantId?: string | null;
     tenantStatus?: string;
     tenantOnboardingStatus?: string;
+    // UI hint only — never trust this for authorization, always re-check
+    // via getPlatformAdminUser() (see src/lib/auth/platformAdmin.ts).
+    isPlatformAdmin?: boolean;
   }
 
   interface Session {
@@ -21,5 +24,6 @@ declare module "next-auth/jwt" {
     tenantId?: string | null;
     tenantStatus?: string;
     tenantOnboardingStatus?: string;
+    isPlatformAdmin?: boolean;
   }
 }

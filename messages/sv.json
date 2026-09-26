@@ -1205,6 +1205,7 @@
     "usersPortalPass": "Portallösenord:",
     "usersPass": "Lösenord:",
     "usersProtected": "Skyddad",
+    "usersSecretSet": "Angiven",
     "usersDeleteConfirm": "Ta bort den här användaren permanent från databasen? Detta kan inte ångras.",
     "ticketsTitle": "Supportcenter",
     "ticketsSubtitle": "Lös kundärenden och tekniska frågor.",

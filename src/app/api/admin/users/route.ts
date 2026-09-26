@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { getPlatformAdminUser } from "@/lib/auth/platformAdmin";
 
 export async function DELETE(req: Request) {
   try {
-    const session = await getServerSession(authOptions);
-    if (!session || !session.user || (session.user.role !== 'ADMIN' && session.user.email !== 'info@deepxclusive.com' && session.user.email !== 'info@tunerportal.com')) {
+    const adminUser = await getPlatformAdminUser();
+    if (!adminUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -14,6 +13,10 @@ export async function DELETE(req: Request) {
     const id = searchParams.get('id');
 
     if (!id) return NextResponse.json({ error: "Missing ID" }, { status: 400 });
+
+    if (id === adminUser.id) {
+      return NextResponse.json({ error: "Cannot delete your own account" }, { status: 400 });
+    }
 
     // A user owns Tickets (which own TicketReplies) and TuningJobs.
     // Those foreign keys have no ON DELETE CASCADE, so we must remove

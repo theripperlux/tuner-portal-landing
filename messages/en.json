@@ -1205,6 +1205,7 @@
     "usersPortalPass": "Portal Pass:",
     "usersPass": "Pass:",
     "usersProtected": "Protected",
+    "usersSecretSet": "Set",
     "usersDeleteConfirm": "Erase user from database permanently? This action cannot be undone.",
     "ticketsTitle": "Support Desk",
     "ticketsSubtitle": "Resolve client issues and technical inquiries.",

@@ -1205,6 +1205,7 @@
     "usersPortalPass": "كلمة مرور البوابة:",
     "usersPass": "كلمة المرور:",
     "usersProtected": "محمي",
+    "usersSecretSet": "مضبوطة",
     "usersDeleteConfirm": "هل تريد حذف هذا المستخدم نهائيًا من قاعدة البيانات؟ لا يمكن التراجع عن هذا الإجراء.",
     "ticketsTitle": "مركز الدعم",
     "ticketsSubtitle": "حلّ استفسارات العملاء والطلبات الفنية.",

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import crypto from "crypto";
 
 export async function POST(req: Request) {
   try {
@@ -17,7 +18,8 @@ export async function POST(req: Request) {
     // Auto-generate a password if not exists and domains are set
     let newPassword = currentUser?.portalPassword;
     if (!newPassword && (adminDomain || customerDomain)) {
-       newPassword = Math.random().toString(36).slice(-10) + "!";
+       // Cryptographically random, not Math.random() (predictable PRNG).
+       newPassword = crypto.randomBytes(12).toString("base64url") + "!";
     }
 
     const updatedUser = await prisma.user.update({
@@ -31,7 +33,11 @@ export async function POST(req: Request) {
       }
     });
 
-    return NextResponse.json(updatedUser);
+    // Never return the password hash — everything else here (including
+    // the user's own portalPassword, which they legitimately need to see
+    // once) is fine for the owning user to receive.
+    const { password, ...safeUser } = updatedUser;
+    return NextResponse.json(safeUser);
   } catch (error) {
     console.error("User settings update failed", error);
     return NextResponse.json({ error: "Internal Error" }, { status: 500 });

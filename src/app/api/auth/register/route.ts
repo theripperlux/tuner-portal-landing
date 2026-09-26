@@ -12,6 +12,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
     }
 
+    // The registration form enforces this client-side (minLength={8}) but
+    // that's trivially bypassed by posting to this route directly — the
+    // server must be the one that actually enforces it.
+    if (typeof password !== "string" || password.length < 8) {
+      return NextResponse.json({ error: "Password must be at least 8 characters." }, { status: 400 });
+    }
+
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
       return NextResponse.json({ error: "User already exists." }, { status: 400 });

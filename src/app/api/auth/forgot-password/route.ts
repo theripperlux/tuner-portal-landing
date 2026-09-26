@@ -3,10 +3,16 @@ import { prisma } from "@/lib/prisma";
 import { sendCustomerEmail } from "@/lib/mailer";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.NEXTAUTH_SECRET || "fallback_secret";
-
 export async function POST(req: Request) {
   try {
+    // Never fall back to a hardcoded secret for a token that grants a
+    // password reset — that would let anyone forge one.
+    const JWT_SECRET = process.env.NEXTAUTH_SECRET;
+    if (!JWT_SECRET) {
+      console.error("NEXTAUTH_SECRET is not configured; refusing to issue a reset token.");
+      return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    }
+
     const { email } = await req.json();
 
     if (!email) {

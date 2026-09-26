@@ -55,6 +55,15 @@ export async function PUT(req: Request) {
     const { ticketId, message } = await req.json();
     if (!ticketId || !message) return NextResponse.json({ error: "Missing fields" }, { status: 400 });
 
+    // Cross-tenant BOLA guard: a ticket belonging to another tenant must
+    // not be reachable just by guessing/knowing its id.
+    const targetTicket = await prisma.ticket.findFirst({
+      where: { id: ticketId, tenantId: context.tenantId }
+    });
+    if (!targetTicket) {
+      return NextResponse.json({ error: "Ticket not found" }, { status: 404 });
+    }
+
     const reply = await prisma.ticketReply.create({
       data: {
         ticketId,
@@ -89,10 +98,18 @@ export async function PATCH(req: Request) {
     const { ticketId, status } = await req.json();
     if (!ticketId || !status) return NextResponse.json({ error: "Missing fields" }, { status: 400 });
 
-    const ticket = await prisma.ticket.update({
-      where: { id: ticketId },
+    // Cross-tenant BOLA guard — updateMany + count check so we never
+    // touch (or reveal the existence of) another tenant's ticket.
+    const updateResult = await prisma.ticket.updateMany({
+      where: { id: ticketId, tenantId: context.tenantId },
       data: { status }
     });
+
+    if (updateResult.count !== 1) {
+      return NextResponse.json({ error: "Ticket not found" }, { status: 404 });
+    }
+
+    const ticket = await prisma.ticket.findUnique({ where: { id: ticketId } });
 
     return NextResponse.json(ticket);
   } catch (error) {
